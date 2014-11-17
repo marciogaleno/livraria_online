@@ -21,7 +21,8 @@ ini_set("display_errors", 1);
 define('URL', 'http://localhost/livraria/');
 define('PATH_PUBLIC', 'http://localhost/livraria/public/');
 define('PATH_VIEW', 'http://localhost/livraria/application/views/');
-$_SESSION['message'] = '';
+define('LIBS_PATH', 'application/libs/');
+
 
 /**
  * Configuration for: Database
@@ -31,4 +32,4 @@ define('DB_TYPE', 'mysql');
 define('DB_HOST', '127.0.0.1');
 define('DB_NAME', 'livraria');
 define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_PASS', '123456');

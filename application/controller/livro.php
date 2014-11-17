@@ -15,8 +15,9 @@ class Livro extends Controller
        $livroModel = $this->loadModel('LivroModel');
        $livros = $livroModel->getAll();
        
-       //var_dump($livros); 
-       
+       $categoriaModel = $this->loadModel('CategoriaModel');
+       $categorias = $categoriaModel->getAll();
+
        require 'application/views/_templates/header.php';
        require 'application/views/livro/index.php';
        require 'application/views/_templates/footer.php';  
@@ -30,6 +31,9 @@ class Livro extends Controller
             $livroModel = $this->loadModel('LivroModel');
             $livro = $livroModel->get($id);  
         }
+        
+        $categoriaModel = $this->loadModel('CategoriaModel');
+        $categorias = $categoriaModel->getAll(); 
         
         require 'application/views/_templates/header.php';
         require 'application/views/livro/view.php';

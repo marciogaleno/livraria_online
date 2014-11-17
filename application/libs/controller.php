@@ -18,6 +18,10 @@ class Controller
      */
     function __construct()
     {
+        Session::init();
+//        if (!isset($_SESSION['user_logged_in'])) {
+//            header('location: ' . URL . 'login');
+//        }
         $this->openDatabaseConnection();
     }
 

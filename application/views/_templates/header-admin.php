@@ -47,23 +47,23 @@
                 <ul class="nav navbar-nav">
                     <li>
                         <a 
-                            href="#">
+                            href="<?php echo URL . 'livro' . DIRECTORY_SEPARATOR . 'listAdmin'?>">
                              Livros
                          </a>
     
                     </li>
                    <li>
-                        <a href="#">
+                        <a href="<?php echo URL . 'pedidos'?>">
                              Pedidos
                          </a>
                     </li>
                    <li>
-                        <a href="#">
+                        <a href="<?php echo URL . 'alugueis'?>">
                              Aluguéis
                          </a>
                     </li>
                    <li>
-                        <a href="#">
+                        <a href="<?php echo URL . 'clientes'?>">
                              Clientes
                          </a>
                     </li>

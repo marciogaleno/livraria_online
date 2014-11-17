@@ -65,10 +65,14 @@
         <div class="row">
 
             <div class="col-md-3">
+                <?php if (!empty($categorias)):?>
                 <p class="lead">Categorias</p>
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Informática</a>
-                    <a href="#" class="list-group-item">Direito</a>
-                    <a href="#" class="list-group-item">Administração</a>
+                    
+                    <?php foreach ($categorias as $categoria):?>
+                    <a href="#" class="list-group-item"><?php echo $categoria['nome']?></a>
+                    <?php endforeach;?>
+                    
                 </div>
+                <?php endif;?>
             </div>
