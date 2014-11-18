@@ -9,6 +9,13 @@ class Livro extends Controller
 {
     public $name = 'livro';
 
+    function __construct()
+    {
+        parent::__construct();
+        
+        Auth::estaLogado();
+        
+    }   
     
     function index()
     {   

@@ -13,9 +13,11 @@
  */
 class Login extends Controller{
     
-   function __construct()
+    function __construct()
     {
         parent::__construct();
+        
+        Auth::estaLogado();
     }
 
     /**
@@ -36,18 +38,21 @@ class Login extends Controller{
      */
     function login()
     {
-        // run the login() method in the login-model, put the result in $login_successful (true or false)
-        $login_model = $this->loadModel('LoginModel');
-        // perform the login method, put result (true or false) into $login_successful
-        $login_successful = $login_model->login();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            
+            // run the login() method in the login-model, put the result in $login_successful (true or false)
+            $login_model = $this->loadModel('LoginModel');
+            // perform the login method, put result (true or false) into $login_successful
+            $login_successful = $login_model->login();
 
-        // check login status
-        if ($login_successful) {
-            // if YES, then move user to dashboard/index (btw this is a browser-redirection, not a rendered view!)
-            header('location: ' . URL . 'dashboard/index');
-        } else {
-            // if NO, then move user to login/index (login form) again
-            header('location: ' . URL . 'login/index');
+            // check login status
+            if ($login_successful) {
+                // if YES, then move user to dashboard/index (btw this is a browser-redirection, not a rendered view!)
+                header('location: ' . URL . '');
+            } else {
+                // if NO, then move user to login/index (login form) again
+                header('location: ' . URL . 'login/index');
+            }
         }
     }
     
@@ -67,5 +72,16 @@ class Login extends Controller{
         require 'application/views/_templates/header.php';
         require 'application/views/login/registrar.php';
         require 'application/views/_templates/footer.php';         
+    }
+    
+    /**
+     * Faz logout, login/logout
+     */
+    function logout()
+    {
+        $login_model = $this->loadModel('LoginModel');
+        $login_model->logout();
+        // redirect user to base URL
+        header('location: ' . URL . 'login');
     }
 }
