@@ -18,7 +18,6 @@ class Auth
         Session::init();
         // if user is still not logged in, then destroy session, handle user as "not logged in" and
         // redirect user to login page
-        echo $_SESSION['usuario_nome'];
         if (!isset($_SESSION['usuario_logado'])) {
             Session::destroy();
             header('location: ' . URL . 'login');

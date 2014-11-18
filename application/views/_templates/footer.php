@@ -1,4 +1,6 @@
-   <div class="container">
+    </div>
+</div>   
+<div class="container">
 
         <hr>
 

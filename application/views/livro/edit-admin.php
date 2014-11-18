@@ -30,8 +30,12 @@
     <input type="text" class="form-control" id="InputPrecoDescricao" name="descricao" value="<?=$livro['descricao']?>" placeholder="Digite o nome do autor">
   </div>
   <div class="form-group">
-    <label for="InputQuant">Quantidade:</label>
-    <input type="number" class="form-control" id="InputQuant" name="Quantidade"  value="<?=$livro['Quantidade']?>" placeholder="Digite o nome do autor">
+    <label for="InputQuant">Quantidade Vender:</label>
+    <input type="number" class="form-control" id="InputQuant" name="Quant_vender"  value="<?=$livro['Quant_vender']?>" placeholder="Digite o nome do autor">
+  </div>
+  <div class="form-group">
+    <label for="InputQuant">Quantidade alugar:</label>
+    <input type="number" class="form-control" id="InputQuant" name="Quant_alugar"  value="<?=$livro['Quant_alugar']?>" placeholder="Digite o nome do autor">
   </div>
     
   <button type="submit" class="btn btn-default">Submit</button>
