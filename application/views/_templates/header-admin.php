@@ -79,6 +79,6 @@
 
         <div class="row">   
             <div class="col-md-9">
-            <?php echo $this->getFlash()?>
+            <?php $this->getFlash() ?>
      
            

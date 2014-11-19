@@ -76,3 +76,4 @@
                 </div>
                 <?php endif;?>
             </div>
+             <?php $this->getFlash() ?>

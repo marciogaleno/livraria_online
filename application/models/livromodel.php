@@ -28,14 +28,15 @@ class LivroModel
         $sql = "INSERT INTO Livro SET nome = :Nome, Autor = :Autor,"
                 . " AnoPublicacao = :AnoPublicacao, PrecoVenda = :PrecoVenda,"
                 . "PrecoAluguel = :PrecoAluguel, PrecoReserva = :PrecoReserva, "
-                . "descricao = :descricao, Quantidade = :Quantidade";
+                . "descricao = :descricao, Quant_venda = :Quant_venda, Quant_aluguel = :Quant_aluguel";
         
         $query = $this->db->prepare($sql); 
         
         $livro['PrecoVenda'] = (float)$livro['PrecoVenda'];
         $livro['PrecoAluguel'] = (float)$livro['PrecoAluguel'];
         $livro['PrecoReserva'] = (float)$livro['PrecoReserva'];
-        $livro['Quantidade'] = (int)$livro['Quantidade'];
+        $livro['Quant_venda'] = (int)$livro['Quant_venda'];
+        $livro['Quant_aluguel'] = (int)$livro['Quant_aluguel'];
         $livro['AnoPublicacao'] = (int)$livro['AnoPublicacao'];
         
         if ($query->execute($livro)){
@@ -57,7 +58,8 @@ class LivroModel
                 . "PrecoAluguel = :PrecoAluguel, "
                 . "PrecoReserva = :PrecoReserva, "
                 . "descricao = :descricao,"
-                . "Quantidade = :Quantidade "
+                . "Quant_venda = :Quant_venda,"
+                . "Quant_aluguel = :Quant_aluguel "
                 . "WHERE idLivro = :idLivro";
         
         $query = $this->db->prepare($sql); 
@@ -71,7 +73,8 @@ class LivroModel
         $query->bindValue(':PrecoAluguel',  (float)$livro['PrecoAluguel']);
         $query->bindValue(':PrecoReserva',  (float)$livro['PrecoReserva']);
         $query->bindValue(':descricao', $livro['descricao'], PDO::PARAM_STR);
-        $query->bindValue(':Quantidade',  (int)$livro['Quantidade'], PDO::PARAM_INT);
+        $query->bindValue(':Quant_venda',  (int)$livro['Quant_venda'], PDO::PARAM_INT);
+        $query->bindValue(':Quant_aluguel',  (int)$livro['Quant_aluguel'], PDO::PARAM_INT);
         $query->bindValue(':idLivro', (int)$livro['idLivro'], PDO::PARAM_INT);
 
 

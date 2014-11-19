@@ -52,4 +52,11 @@ class Session {
     {
         session_destroy();
     }
+    
+    public static function destroyKey($key)
+    {
+        if (isset($_SESSION[$key])) {
+           unset($_SESSION[$key]);
+        }
+    }
 }

@@ -48,15 +48,17 @@ class Livro extends Controller
     }
 
     
-    function addAdmin()
+    function add()
     {    
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // load model, perform an action on the model
             $livroModel = $this->loadModel('LivroModel');
             if ($livroModel->add($_POST)){
-                $message = $this->setflash('Salvo com sucesso', array('class' => 'alert alert-success'));
+                $this->setflash('Salvo com sucesso', array('class' => 'alert alert-success'));
+                 header('Location: '. URL . $this->name . '/listAdmin/'. $livro_id);
+                 exit;
             }else{
-                $message = $this->setflash('Erro ao salvar', array('class' => 'alert alert-error'));
+                $this->setflash('Erro ao salvar', array('class' => 'alert alert-error'));
             }
         }        
         require 'application/views/_templates/header-admin.php';
@@ -83,11 +85,12 @@ class Livro extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // load model, perform an action on the model
             if ($livroModel->edit($_POST)){
-                $message = $this->setflash('Salvo com sucesso', array('class' => 'alert alert-success'));
-                
-                //header('Location: '. URL . $this->name . '/listAdmin/'. $livro_id);
+                $this->setflash('Salvo com sucesso', array('class' => 'alert alert-success'));                
+                header('Location: '. URL . $this->name . '/listAdmin/'. $livro_id);
+                exit;
             }else{
-                $message = $this->setflash('Erro ao salvar', array('class' => 'alert alert-error'));
+                $this->setflash('Erro ao salvar', array('class' => 'alert alert-error'));
+                exit;
             }
         }       
          // load model, perform an action on the model
@@ -104,9 +107,16 @@ class Livro extends Controller
             // load model, perform an action on the model
             $livroModel = $this->loadModel('LivroModel');
             $livro = $livroModel->delete($id);
-            $message = $this->setflash('Salvo com sucesso', array('class' => 'alert alert-success'));
-            header('Location: '. URL . $this->name . '/listAdmin/');
+            if ($livro){
+                $this->setflash('Deletado com sucesso', array('class' => 'alert alert-success'));
+                header('Location: '. URL . $this->name . '/listAdmin/');
+                exit;
+            }else{
+                $this->setflash('Erro ao excluir', array('class' => 'alert alert-error'));
+                header('Location: '. URL . $this->name . '/listAdmin/');                
+            }
         }
+
 
     }    
 }

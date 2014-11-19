@@ -31,11 +31,11 @@
   </div>
   <div class="form-group">
     <label for="InputQuant">Quantidade Vender:</label>
-    <input type="number" class="form-control" id="InputQuant" name="Quant_vender"  value="<?=$livro['Quant_vender']?>" placeholder="Digite o nome do autor">
+    <input type="number" class="form-control" id="InputQuant" name="Quant_venda"  value="<?=$livro['Quant_venda']?>" placeholder="Digite o nome do autor">
   </div>
   <div class="form-group">
     <label for="InputQuant">Quantidade alugar:</label>
-    <input type="number" class="form-control" id="InputQuant" name="Quant_alugar"  value="<?=$livro['Quant_alugar']?>" placeholder="Digite o nome do autor">
+    <input type="number" class="form-control" id="InputQuant" name="Quant_aluguel"  value="<?=$livro['Quant_aluguel']?>" placeholder="Digite o nome do autor">
   </div>
     
   <button type="submit" class="btn btn-default">Submit</button>

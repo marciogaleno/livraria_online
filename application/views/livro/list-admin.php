@@ -21,8 +21,8 @@
     <td><?=$livro['PrecoAluguel']?></td>
     <td><?=$livro['PrecoReserva']?></td>
     <td><?=$livro['descricao']?></td>
-    <td><?=$livro['Quant_vender']?></td>
-    <td><?=$livro['Quant_alugar']?></td>
+    <td><?=$livro['Quant_venda']?></td>
+    <td><?=$livro['Quant_aluguel']?></td>
     <td><a href="<?=URL?>livro/editAdmin/<?=$livro['idLivro']?>" class="btn btn-primary">Editar</a></td>
     <td><a href="<?=URL?>livro/delete/<?=$livro['idLivro']?>" class="btn btn-danger delete">Excluir</a></td>
   </tr>

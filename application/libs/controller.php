@@ -63,18 +63,22 @@ class Controller
      */
     public function setflash($message, $options)
     {
+        Session::init();
         if (isset($message) && isset($options)){
             $html = '<div class="'. $options['class'] . '">' . $message . '</div>';
-            $_SESSION['message'] = $html;
-            self::$message = $html;
+            setcookie('message', $html, time()+30, '/');
+         
         }
         
     }
   
     public function getFlash(){
-        $message = self::$message;
-        self::$message = null;
-        return $message;
+        if (isset ($_COOKIE['message'])){
+            echo $_COOKIE['message'];
+            setcookie('message', '', time()+30, '/');
+        }
+        
+        //unset($_SESSION['message']);
     }
 
     public  function resirect($options, $parans)
