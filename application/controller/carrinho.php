@@ -27,6 +27,25 @@ class Carrinho extends Controller
     }
     
     /**
+     * Registra o pagamento de compra, aluguel e reserva de livro
+     */
+    public function pagar()
+    {
+        if (isset ($_COOKIE['livros'])){
+            $carrinhoModel = $this->loadModel('CarrinhoModel');
+            //Pegando os itens do carrinho de compra
+            $livros = unserialize($_COOKIE['livros']);
+            if ($carrinhoModel->pagar($livros)){
+                setcookie("livros", '', time()+3600, '/');
+                $this->setflash('Pagamento realizado com sucesso!', array('class' => 'alert alert-success'));
+                header('location: ' . URL . 'carrinho/confirmacaoPagamento');
+            }else{
+                $this->setflash('Pagamento realizado com sucesso!', array('class' => 'alert alert-error'));
+                header('location: ' . URL . 'carrinho/confirmacaoPagamento');               
+            }
+        }
+    }
+    /**
      * Excluir item que está no array no coockie de livros
      * @param int $id_livro 
      */
@@ -61,7 +80,7 @@ class Carrinho extends Controller
      * Excluir item que está no array no coockie de livros
      * @param int $id_livro 
      */
-    public function adicionarIntem($id_livro = null, $nome_livro = null, $preco_livro = null, $tipo = null)
+    public function adicionarIntem($id_livro = null, $nome_livro = null, $preco_livro = null, $quant = null, $tipo = null)
     { 
        $livros_view = null;
        if (!empty ($id_livro) && filter_var($id_livro, FILTER_VALIDATE_INT)
@@ -71,12 +90,17 @@ class Carrinho extends Controller
            if (isset($_COOKIE['livros'])){
              $livros = unserialize($_COOKIE['livros']);
              $id_livro = (int)$id_livro;
-             $livros[$id_livro] = array('nome_livro' => $nome_livro, 'preco_livro' => $preco_livro, 'operacao' => $tipo);           
+             
+             $valor_da_compra = $preco_livro * $quant;
+             
+             $livros[$id_livro] = array('nome_livro' => $nome_livro, 'preco_livro' => $preco_livro, 'quant' => $quant, 'operacao' => $tipo, 'ValordaCompra' => $valor_da_compra);           
              $livros_view = $livros;
              $livros = serialize($livros);
              setcookie("livros", $livros, time()+3600, '/');           
           }else{
-              $livros[$id_livro] = array('nome_livro' => $nome_livro, 'preco_livro' => $preco_livro, 'operacao' => $tipo);
+              $valor_da_compra = $preco_livro * $quant;
+              
+              $livros[$id_livro] = array('nome_livro' => $nome_livro, 'preco_livro' => $preco_livro, 'quant' => $quant, 'operacao' => $tipo, 'ValorAluguel' => $valor_da_compra);
               $livros_view = $livros;
               $livros = serialize($livros);
               setcookie("livros", $livros, time()+3600, '/'); 
@@ -89,6 +113,12 @@ class Carrinho extends Controller
           $this->setflash('Erro ao adicionar ítem', array('class' => 'alert alert-error'));
           header('location: ' . URL . 'carrinho/checkout');
           return;
+    }
+    
+    public function confirmacaoPagamento(){
+       require 'application/views/_templates/header.php';
+       require 'application/views/carrinho/confirmacaopagamento.php';
+       require 'application/views/_templates/footer.php';         
     }
     
 }

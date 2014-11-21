@@ -31,8 +31,8 @@
                     <div class="col-md-4" style="height:300px;">
                         <h4 class="pull-right" style="margin-top: 180px;">Preço Venda: R$ <?=$livro['PrecoVenda']?></h4><br>
                         <h4 class="pull-right">Preço Aluguel: R$ <?=$livro['PrecoAluguel']?></h4>
-                        <a href="<?=URL?>carrinho/adicionarIntem/<?=$livro['idLivro']?>/<?=$livro['Nome']?>/<?=$livro['PrecoVenda']?>/1" type="button" class="btn btn-primary btn-lg" style="bottom: 0px;position: absolute; right: 5px;">Comprar</a>
-                        <a href="<?=URL?>carrinho/adicionarIntem/<?=$livro['idLivro']?>/<?=$livro['Nome']?>/<?=$livro['PrecoAluguel']?>/2" type="button" class="btn btn-primary btn-lg" style="bottom: 0px;position: absolute; right: 120px;">Alugar</a>
+                        <a href="<?=URL?>carrinho/adicionarIntem/<?=$livro['idLivro']?>/<?=$livro['Nome']?>/<?=$livro['PrecoVenda']?>/1/1" type="button" class="btn btn-primary btn-lg" style="bottom: 0px;position: absolute; right: 5px;">Comprar</a>
+                        <a href="<?=URL?>carrinho/adicionarIntem/<?=$livro['idLivro']?>/<?=$livro['Nome']?>/<?=$livro['PrecoAluguel']?>/1/2" type="button" class="btn btn-primary btn-lg" style="bottom: 0px;position: absolute; right: 120px;">Alugar</a>
                     </div>
                  </div>
 
