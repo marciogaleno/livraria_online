@@ -3,7 +3,7 @@
                 <div class="row panel panel-default">
                     <div class="col-md-4" style="margin-top: 10px;">
                         <div class="thumbnail" style="width:220px;">
-                            <img src="<?=PATH_PUBLIC?>img/padroes-projeto.jpg" alt="">
+                            <img src="<?=PATH_PUBLIC?>img/padroes.jpg" alt="">
                         
                             <div class="ratings">
                                 <p>
