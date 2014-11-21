@@ -13,7 +13,7 @@ class Livro extends Controller
     {
         parent::__construct();
         
-        Auth::estaLogado();
+        
         
     }   
     
@@ -28,7 +28,7 @@ class Livro extends Controller
        require 'application/views/_templates/header.php';
        require 'application/views/livro/index.php';
        require 'application/views/_templates/footer.php';  
-       var_dump($_GET); die;
+       //var_dump($_GET); die;
     }
     
     function view($id = null)
@@ -50,6 +50,8 @@ class Livro extends Controller
     
     function add()
     {    
+        Auth::estaLogado();
+        
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // load model, perform an action on the model
             $livroModel = $this->loadModel('LivroModel');
@@ -68,6 +70,7 @@ class Livro extends Controller
     
     function listAdmin()
     {
+        Auth::estaLogado();
         // load model, perform an action on the model
         $livroModel = $this->loadModel('LivroModel');
         $livros = $livroModel->getAll();  
@@ -80,6 +83,8 @@ class Livro extends Controller
      
     function editAdmin($livro_id = null)
     {    
+        Auth::estaLogado();
+        
         $livroModel = $this->loadModel('LivroModel');
         
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -102,7 +107,9 @@ class Livro extends Controller
     }  
     
     function delete($id = null)
-    {        
+    {    
+        Auth::estaLogado();
+        
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             // load model, perform an action on the model
             $livroModel = $this->loadModel('LivroModel');

@@ -9,7 +9,7 @@
     </li>
 </ul>
 
-<form role="form" action="add" method="post">
+<form role="form" action="addPessoaFisica" method="post">
   <div class="form-group">
     <label for="InputNome">Nome:</label>
     <input type="text" class="form-control" name="Nome" id="InputNome" placeholder="Digite seu Nome">
@@ -20,28 +20,29 @@
   </div>
   <div class="form-group">
     <label for="InputPublicacao">RG:</label>
-    <input type="number" class="form-control" name="RG" id="InputPublicacao" placeholder="Digite o seu rg">
+    <input type="text" class="form-control" name="RG" id="InputPublicacao" placeholder="Digite o seu rg">
   </div>
   <div class="form-group">
     <label for="InputPrecoVenda">DataNascimento:</label>
-    <input type="number" class="form-control" id="InputPrecoVenda" name="DataNascimento" placeholder="Digite a sua data de nascimento">
-  </div>
-  <div class="form-group">
-    <label for="InputPrecoAluguel">Preço aluguel:</label>
-    <input type="number" class="form-control" id="InputPrecoAluguel" name="PrecoAluguel" placeholder="Digite o nome do autor">
+    <input type="text" class="form-control" id="InputPrecoVenda" name="DataNascimento" placeholder="Digite a sua data de nascimento">
   </div>
   <div class="form-group">
     <label for="InputPrecoReserva">Endereço:</label>
-    <input type="number" class="form-control" id="InputPrecoReserva" name="EnderecoCli" placeholder="Digite o nome do autor">
+    <input type="text" class="form-control" id="InputPrecoReserva" name="EnderecoCli" placeholder="Digite o nome do autor">
   </div>
   <div class="form-group">
     <label for="InputPrecoDescricao">Telefone:</label>
     <input type="text" class="form-control" id="InputPrecoDescricao" name="TelefoneCli"placeholder="Digite o nome do autor">
   </div>
+    <h3>Dados de usuário</h3>
   <div class="form-group">
     <label for="InputQuant">E-mail:</label>
-    <input type="number" class="form-control" id="InputQuant" name="EmailCli" placeholder="Digite o e-mail">
-  </div>
-    
-  <button type="submit" class="btn btn-default">Submit</button>
+    <input type="text" class="form-control" id="InputQuant" name="EmailCli" placeholder="Digite o e-mail">
+  </div>  
+  <div class="form-group">
+    <label for="InputPublicacao">Senha:</label>
+    <input type="password" class="form-control" name="senha" id="InputPublicacao" placeholder="Digite sua senha">
+  </div>    
+    <input type="hidden" value="admin" name="tipo_user">
+  <button type="submit" class="btn btn-default">Cadastrar</button>
 </form>

@@ -100,7 +100,7 @@ class Carrinho extends Controller
           }else{
               $valor_da_compra = $preco_livro * $quant;
               
-              $livros[$id_livro] = array('nome_livro' => $nome_livro, 'preco_livro' => $preco_livro, 'quant' => $quant, 'operacao' => $tipo, 'ValorAluguel' => $valor_da_compra);
+              $livros[$id_livro] = array('nome_livro' => $nome_livro, 'preco_livro' => $preco_livro, 'quant' => $quant, 'operacao' => $tipo, 'ValordaCompra' => $valor_da_compra);
               $livros_view = $livros;
               $livros = serialize($livros);
               setcookie("livros", $livros, time()+3600, '/'); 

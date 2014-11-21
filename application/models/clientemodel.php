@@ -29,27 +29,80 @@ class ClienteModel {
      * adicona um livro
      * @param srray $data
      */
-    public function add($livro)
+    public function addPessoaFisica()
     {
         //Adicionando cliente
-        $sql = "INSERT INTO cliente SET EnderecoCli = :EnderecoCli, TelefoneCli = :TelefoneCli,"
-                . " EmailCli = :EmailCli, HomePageCli = :HomePageCli";
+        $this->db->beginTransaction();
+        
+        //Adicionando CLiente
+        if ($this->addCliente()){           
+            $cliente_id = $this->db->lastInsertId();
+        }else{//Se não salvar abortar
+            $this->db->rollback();
+            return false;
+        }
+        
+        //Adicionando pessoa física
+        $sql = "INSERT INTO PessoaFisica SET Nome = :Nome, CPF = :CPF, RG = :RG,"
+                . " DataNascimento = :DataNascimento, Cliente_idCliente = :Cliente_idCliente"; 
+        
+        $query = $this->db->prepare($sql);
+        //echo $cliente_id; die;
+        $query->bindValue(':Nome', $_POST['Nome']);
+        $query->bindValue(':CPF', $_POST['CPF']);
+        $query->bindValue(':RG', $_POST['RG']);
+        $query->bindValue(':DataNascimento', $_POST['DataNascimento']);
+        $query->bindValue(':Cliente_idCliente', $cliente_id);
+        
+        //Se não salva abortar
+        if (!$query->execute()){
+            $this->db->rollback();
+            return false;
+        }
+        
+        //Adicionando usuário de acesso ao sistema;
+        
+        $hash = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+        
+        $sql = "INSERT INTO usuario SET nome = :nome, "
+                . "email = :email, "
+                . "senha = :senha,"
+                . "tipo_user = :tipo_user";
         
         $query = $this->db->prepare($sql); 
         
-        $livro['PrecoVenda'] = (float)$livro['PrecoVenda'];
-        $livro['PrecoAluguel'] = (float)$livro['PrecoAluguel'];
-        $livro['PrecoReserva'] = (float)$livro['PrecoReserva'];
-        $livro['Quant_venda'] = (int)$livro['Quant_venda'];
-        $livro['Quant_aluguel'] = (int)$livro['Quant_aluguel'];
-        $livro['AnoPublicacao'] = (int)$livro['AnoPublicacao'];
         
-        if ($query->execute($livro)){
+        if ($query->execute(array(
+            'nome' => $_POST['Nome'],
+            'email' => $_POST['EmailCli'],
+            'senha' => $hash,
+            'tipo_user' => 'cliente'
+        ))){//Se até aqui nada falou nada, confirmar persistencia no bd
+            $this->db->commit();
             return true;
         } 
         
+        $this->db->rollback();
         return false;
-    }    
+    } 
+    
+    function addCliente()
+    {
+        $sql = "INSERT INTO Cliente SET EnderecoCli = :EnderecoCli, TelefoneCli = :TelefoneCli,"
+                . " EmailCli = :EmailCli";
+        
+        $query = $this->db->prepare($sql); 
+        
+        $query->bindValue(':EnderecoCli', $_POST['EnderecoCli']);
+        $query->bindValue(':TelefoneCli', $_POST['TelefoneCli']);
+        $query->bindValue(':EmailCli', $_POST['EmailCli']);
+        
+        if ($query->execute()){
+            return true;
+        }
+        
+        return false;
+    }
 }
 
 ?>

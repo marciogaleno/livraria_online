@@ -63,7 +63,15 @@ class LoginModel {
 //            $_SESSION["feedback_negative"][] = FEEDBACK_PASSWORD_WRONG_3_TIMES;
 //            return false;
 //        }
-
+        
+         $sth = $this->db->prepare("SELECT *
+                                   FROM   Cliente
+                                   WHERE  (EmailCli = :EmailCli)");  
+         
+         $sth->execute(array(':EmailCli' => $result['email']));
+         
+          $cliente = $sth->fetch();
+         
         // check if hash of provided password matches the hash in the database
         if (password_verify($_POST['senha'], $result['senha'])) {
 
@@ -76,6 +84,7 @@ class LoginModel {
             Session::init();
             Session::set('usuario_logado', true);
             Session::set('usuario_id', $result['id']);
+            Session::set('cliente_id', $cliente['idCliente']);
             Session::set('usuario_nome', $result['nome']);
             Session::set('usuario_email', $result['email']);
             Session::set('tipo_user', $result['tipo_user']);

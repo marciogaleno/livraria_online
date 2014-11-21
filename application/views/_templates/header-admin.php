@@ -67,7 +67,27 @@
                              Clientes
                          </a>
                     </li>
+                    
                 </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown" style="float: right">
+                    <?php if (isset($_SESSION['cliente_id']) && $_SESSION['usuario_id']){?>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><?=$_SESSION['usuario_nome']?><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Meus dados</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="<?=URL?>login/logout"><i class="fa fa-fw fa-power-off"></i>Sair</a>
+                        </li>
+                        </ul>
+                    <?php }else {?>
+                        <a href="<?=URL?>/login">Faça seu login:</a>                   
+                     <?php }?>
+                    </li>
+                    
+                   </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>

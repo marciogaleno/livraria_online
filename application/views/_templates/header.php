@@ -44,7 +44,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">About</a>
+                        <a href="#">Cadastrar</a>
                     </li>
                     <li>
                         <a href="#">Minha conta</a>
@@ -52,6 +52,39 @@
                     <li>
                         <a href="#">Contato</a>
                     </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <?php 
+                        $total_itens_carrinho = 0;  
+                        if (!empty($_COOKIE['livros'])){
+                            $itens = unserialize($_COOKIE['livros']);
+                            $total_itens_carrinho = count($itens);
+                        }
+                    ?>
+                    <li><a href="<?=URL?>carrinho/checkout"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><span class="badge"><?=$total_itens_carrinho?></span></a></li>
+                    <li class="dropdown" style="float: right">
+                    <?php if (isset($_SESSION['cliente_id']) && $_SESSION['usuario_id']){?>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><?=$_SESSION['usuario_nome']?><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        <li>
+                            <a href="<?=URL?>conta"><i class="fa fa-fw fa-user"></i> Conta</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Meus dados</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Pedidos</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="<?=URL?>login/logout"><i class="fa fa-fw fa-power-off"></i>Sair</a>
+                        </li>
+                    </ul>
+                    <?php }else {?>
+                        <a href="<?=URL?>/login">Faça seu login:</a>                   
+                     <?php }?>
+                    </li>
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

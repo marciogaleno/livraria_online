@@ -37,14 +37,16 @@ class CarrinhoModel
                 
                 if ($livro['operacao'] == 1){
                     if (!$this->pagarCompra($livro_id, $livro,$pedido_id)){
+                        die('aki');
                         $this->db->rollback();
                         return false;
                     }  
                 }
                 
-                if ($livro['operacao'] == 2){                   
+                if ($livro['operacao'] == 2){   
                     if(!$this->pagarAluguel($livro_id, $livro, $pedido_id)){                       
                         $this->db->rollback();
+                         
                         return false;                        
                     } 
                 }
@@ -63,7 +65,7 @@ class CarrinhoModel
      */
     public function pagarCompra($livro_id, $livro, $pedido_id)
     {
-        $sql = "INSERT INTO compra " 
+        $sql = "INSERT INTO Compra " 
                . "(DataCompra,pedido_id, Cliente_idCliente,Livro_idLivro,Quantidade,ValordaCompra) "
                . "VALUES ("
                . ":DataCompra, "
@@ -78,7 +80,7 @@ class CarrinhoModel
        // $query->bindValue(':pedido_id', 1, PDO::PARAM_INT);
         $query->bindValue(':DataCompra', date("y/m/d H:i:s"), PDO::PARAM_STR);
         $query->bindValue(':pedido_id', $pedido_id, PDO::PARAM_INT);
-        $query->bindValue(':Cliente_idCliente', (int)$_SESSION['usuario_id'], PDO::PARAM_INT);
+        $query->bindValue(':Cliente_idCliente', (int)$_SESSION['cliente_id'], PDO::PARAM_INT);
         $query->bindValue(':Livro_idLivro', $livro_id, PDO::PARAM_INT);
         $query->bindValue(':Quantidade', (int)$livro['quant'], PDO::PARAM_INT);                    
         $query->bindValue(':ValordaCompra', (float)$livro['ValordaCompra']); 
@@ -97,7 +99,7 @@ class CarrinhoModel
      */
     public function pagarAluguel($livro_id, $livro, $pedido_id)
     {          
-        $sql = "INSERT INTO aluga " 
+        $sql = "INSERT INTO Aluga " 
                . "(pedido_id, DataAluguel, ValorAluguel,ValorMulta,DataDevolucao,Cliente_idCLiente,Livro_idLivro) "
                . " VALUES ("
                . ":pedido_id, "
@@ -113,14 +115,14 @@ class CarrinhoModel
        // $query->bindValue(':pedido_id', 1, PDO::PARAM_INT);
         $query->bindValue(':pedido_id', $pedido_id, PDO::PARAM_INT);
         $query->bindValue(':DataAluguel', date("y/m/d"), PDO::PARAM_STR);
-        $query->bindValue(':ValorAluguel', (float)$livro['ValorAluguel']);
+        $query->bindValue(':ValorAluguel', (float)$livro['ValordaCompra']);
         $query->bindValue(':ValorMulta',(float)2.0);
         $query->bindValue(':DataDevolucao', date('y/m/d', strtotime("+13 days")),  PDO::PARAM_STR);
-        $query->bindValue(':Cliente_idCLiente', (int)$_SESSION['usuario_id'], PDO::PARAM_INT);
+        $query->bindValue(':Cliente_idCLiente', (int)$_SESSION['cliente_id'], PDO::PARAM_INT);
         $query->bindValue(':Livro_idLivro', $livro_id, PDO::PARAM_INT);
         
         //$this->db->commit();
-        if ($query->execute()){                           
+        if ($query->execute()){
             return true;
         }
         return false;        
