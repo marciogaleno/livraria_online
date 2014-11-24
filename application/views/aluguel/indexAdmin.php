@@ -1,4 +1,4 @@
-<div class="col-md-9">
+
 <table class="table table-striped">
 <thead>
   <tr>
@@ -8,6 +8,8 @@
     <th>Data Saída</th>
     <th>Data Devolução</th>
     <th>Multa</th>
+    <th>Nome Cliente</th>
+    <th>CPF/CNPJ</th>
     <th>Ações</th>
   </tr>
 </thead>
@@ -20,6 +22,8 @@
     <td><?=$aluguel['DataAluguel']?></td>
     <td><?=$aluguel['DataDevolucao']?></td>
     <td><?=$aluguel['ValorMulta']?></td>
+    <td><?=$aluguel['NomeCliente']?></td>
+    <td><?=$aluguel['CPF']?></td>
     <?php if ($aluguel['ValorMulta'] > 0){ ?>
       <td><h6><b>Livro com multa. Por favor, Comparecer a livraria.</b></h6></td>
     <?php }else{?>
@@ -29,4 +33,3 @@
   <?php endforeach;?>
 </tbody>
 </table>
-</div>

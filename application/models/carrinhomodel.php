@@ -85,8 +85,22 @@ class CarrinhoModel
         $query->bindValue(':Quantidade', (int)$livro['quant'], PDO::PARAM_INT);                    
         $query->bindValue(':ValordaCompra', (float)$livro['ValordaCompra']); 
         //$this->db->commit();
-        if ($query->execute()){                           
-            return true;
+        if ($query->execute()){  
+            
+             //Diminuindo a quantidade restante de livros para compra
+            $livro['Rest'] -= $livro['quant'];
+            
+            $sql = "UPDATE Livro SET Rest_venda = :Rest_venda WHERE idLivro = :idLivro";
+            
+             $query = $this->db->prepare($sql);
+             
+            $query->bindValue(':Rest_venda', $livro['Rest']); 
+            $query->bindValue(':idLivro', $livro_id); 
+            
+            if ($query->execute()){
+                 return true;
+            }
+            
         }
         return false;        
     }
@@ -98,7 +112,8 @@ class CarrinhoModel
      * @return boolean 
      */
     public function pagarAluguel($livro_id, $livro, $pedido_id)
-    {          
+    {    
+        
         $sql = "INSERT INTO Aluga " 
                . "(pedido_id, DataAluguel, ValorAluguel,ValorMulta,DataDevolucao,Cliente_idCLiente,Livro_idLivro) "
                . " VALUES ("
@@ -116,17 +131,30 @@ class CarrinhoModel
         $query->bindValue(':pedido_id', $pedido_id, PDO::PARAM_INT);
         $query->bindValue(':DataAluguel', date("y/m/d"), PDO::PARAM_STR);
         $query->bindValue(':ValorAluguel', (float)$livro['ValordaCompra']);
-        $query->bindValue(':ValorMulta',(float)2.0);
+        $query->bindValue(':ValorMulta',(float)0.0);
         $query->bindValue(':DataDevolucao', date('y/m/d', strtotime("+13 days")),  PDO::PARAM_STR);
         $query->bindValue(':Cliente_idCLiente', (int)$_SESSION['cliente_id'], PDO::PARAM_INT);
         $query->bindValue(':Livro_idLivro', $livro_id, PDO::PARAM_INT);
         
         //$this->db->commit();
         if ($query->execute()){
-            return true;
+             //Diminuindo a quantidade restante de livros para compra
+            $livro['Rest'] -= $livro['quant'];
+            
+            $sql = "UPDATE Livro SET Rest_aluguel = :Rest_aluguel WHERE idLivro = :idLivro";
+            
+             $query = $this->db->prepare($sql);
+             
+            $query->bindValue(':Rest_aluguel', $livro['Rest']); 
+            $query->bindValue(':idLivro', $livro_id); 
+            
+            if ($query->execute()){
+                 return true;
+            }
         }
         return false;        
     }
+    
 }
 
 ?>

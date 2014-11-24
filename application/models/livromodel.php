@@ -28,7 +28,8 @@ class LivroModel
         $sql = "INSERT INTO Livro SET nome = :Nome, Autor = :Autor,"
                 . " AnoPublicacao = :AnoPublicacao, PrecoVenda = :PrecoVenda,"
                 . "PrecoAluguel = :PrecoAluguel, PrecoReserva = :PrecoReserva, "
-                . "descricao = :descricao, Quant_venda = :Quant_venda, Quant_aluguel = :Quant_aluguel";
+                . "descricao = :descricao, Quant_venda = :Quant_venda, Quant_aluguel = :Quant_aluguel, "
+                . "Rest_venda = :Rest_venda, Rest_aluguel = :Rest_aluguel";
         
         $query = $this->db->prepare($sql); 
         
@@ -38,6 +39,8 @@ class LivroModel
         $livro['Quant_venda'] = (int)$livro['Quant_venda'];
         $livro['Quant_aluguel'] = (int)$livro['Quant_aluguel'];
         $livro['AnoPublicacao'] = (int)$livro['AnoPublicacao'];
+        $livro['Rest_venda'] = (int)$livro['Quant_venda'];
+        $livro['Rest_aluguel'] = (int)$livro['Quant_aluguel'];
         
         if ($query->execute($livro)){
             return true;

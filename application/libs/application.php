@@ -20,6 +20,8 @@ class Application
     private $url_parameter_4 = null;
     
     private $url_parameter_5 = null;
+    
+    private $url_parameter_6 = null;
 
     /**
      * "Start" the application:
@@ -42,7 +44,10 @@ class Application
             if (method_exists($this->url_controller, $this->url_action)) {
 
                 // call the method and pass the arguments to it
-                if (isset($this->url_parameter_5)) {
+                if (isset($this->url_parameter_6)) {
+                    // will translate to something like $this->home->method($param_1, $param_2, $param_3);
+                    $this->url_controller->{$this->url_action}($this->url_parameter_1, $this->url_parameter_2, $this->url_parameter_3, $this->url_parameter_4, $this->url_parameter_5, $this->url_parameter_6);
+                } elseif (isset($this->url_parameter_5)) {
                     // will translate to something like $this->home->method($param_1, $param_2, $param_3);
                     $this->url_controller->{$this->url_action}($this->url_parameter_1, $this->url_parameter_2, $this->url_parameter_3, $this->url_parameter_4, $this->url_parameter_5);
                 } elseif (isset($this->url_parameter_4)) {
@@ -98,6 +103,7 @@ class Application
             $this->url_parameter_3 = (isset($url[4]) ? $url[4] : null);
             $this->url_parameter_4 = (isset($url[5]) ? $url[5] : null);
             $this->url_parameter_5 = (isset($url[6]) ? $url[6] : null);
+            $this->url_parameter_6 = (isset($url[7]) ? $url[7] : null);
 
             // for debugging. uncomment this if you have problems with the URL
             // echo 'Controller: ' . $this->url_controller . '<br />';

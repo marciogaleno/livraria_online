@@ -47,7 +47,7 @@
                         <a href="#">Cadastrar</a>
                     </li>
                     <li>
-                        <a href="#">Minha conta</a>
+                        <a href="<?=URL?>conta">Minha conta</a>
                     </li>
                     <li>
                         <a href="#">Contato</a>
@@ -96,14 +96,14 @@
     <div class="container">
 
         <div class="row">
-
+              <?php $this->getFlash() ?>
             <div class="col-md-3">
                 <p class="lead"></p>
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Meus Pedidos</a>
-                    <a href="#" class="list-group-item">Compras</a>
-                    <a href="#" class="list-group-item">Aluguéis</a>
-                    <a href="#" class="list-group-item">Reserva</a>                    
-                    <a href="#" class="list-group-item">Meus dados</a>                    
+                    <a href="<?=URL?>compras" class="list-group-item">Meus Pedidos</a>
+                    <a href="<?=URL?>compras" class="list-group-item">Compras</a>
+                    <a href="<?=URL?>aluguel" class="list-group-item">Alugueis</a>
+                    <a href="<?=URL?>reservas" class="list-group-item">Reservas</a>                                        
                 </div>
             </div>
+            

@@ -75,7 +75,7 @@ class Controller
     public function getFlash(){
         if (isset ($_COOKIE['message'])){
             echo $_COOKIE['message'];
-            setcookie('message', '', time()+30, '/');
+            setcookie('message', null, time()+30, '/');
         }
         
         //unset($_SESSION['message']);

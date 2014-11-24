@@ -1,22 +1,27 @@
 <?php
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 
 /**
- * Description of compras
+ * Description of Pedidos
  *
- * @author marcio
+ * @author Márcio Vennan
  */
-class Compras extends Controller
-{
-    function checkout()
+class Compras extends Controller{
+    //put your code here
+    public function index()
     {
-       require 'application/views/_templates/header-admin.php';
-       require 'application/views/compras/checkout.php';
-       require 'application/views/_templates/footer.php';   
+       $CompraModel = $this->loadModel('CompraModel');
+       $compras = $CompraModel->getAll();
+        
+      // var_dump($pedidos);die;
+       require 'application/views/_templates/header-conta-user.php';
+       require 'application/views/compras/index.php';
+       require 'application/views/_templates/footer.php';         
     }
 }
+
+?>

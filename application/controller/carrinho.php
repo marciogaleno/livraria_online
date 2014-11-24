@@ -31,6 +31,8 @@ class Carrinho extends Controller
      */
     public function pagar()
     {
+        Auth::estaLogado();
+        
         if (isset ($_COOKIE['livros'])){
             $carrinhoModel = $this->loadModel('CarrinhoModel');
             //Pegando os itens do carrinho de compra
@@ -80,7 +82,7 @@ class Carrinho extends Controller
      * Excluir item que está no array no coockie de livros
      * @param int $id_livro 
      */
-    public function adicionarIntem($id_livro = null, $nome_livro = null, $preco_livro = null, $quant = null, $tipo = null)
+    public function adicionarIntem($id_livro = null, $nome_livro = null, $preco_livro = null, $quant = null, $tipo = null, $rest)
     { 
        $livros_view = null;
        if (!empty ($id_livro) && filter_var($id_livro, FILTER_VALIDATE_INT)
@@ -93,14 +95,14 @@ class Carrinho extends Controller
              
              $valor_da_compra = $preco_livro * $quant;
              
-             $livros[$id_livro] = array('nome_livro' => $nome_livro, 'preco_livro' => $preco_livro, 'quant' => $quant, 'operacao' => $tipo, 'ValordaCompra' => $valor_da_compra);           
+             $livros[$id_livro] = array('nome_livro' => $nome_livro, 'preco_livro' => $preco_livro, 'quant' => $quant, 'operacao' => $tipo, 'ValordaCompra' => $valor_da_compra, 'Rest' => $rest);           
              $livros_view = $livros;
              $livros = serialize($livros);
              setcookie("livros", $livros, time()+3600, '/');           
           }else{
               $valor_da_compra = $preco_livro * $quant;
               
-              $livros[$id_livro] = array('nome_livro' => $nome_livro, 'preco_livro' => $preco_livro, 'quant' => $quant, 'operacao' => $tipo, 'ValordaCompra' => $valor_da_compra);
+              $livros[$id_livro] = array('nome_livro' => $nome_livro, 'preco_livro' => $preco_livro, 'quant' => $quant, 'operacao' => $tipo, 'ValordaCompra' => $valor_da_compra, 'Rest' => $rest);
               $livros_view = $livros;
               $livros = serialize($livros);
               setcookie("livros", $livros, time()+3600, '/'); 

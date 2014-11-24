@@ -24,15 +24,22 @@
                                 </h2>
                                 <h5>Autor:</h5>
                                 <h5>Cód.</h5>
-                                <h5 style="color: green">Disponível para compra (<?=$livro['Quant_venda']?>):</h5>
-                                <h5 style="color: red">Disponível para alugar (<?=$livro['Quant_aluguel']?>):</h5>
+                                <h5 style="color: green">Disponível para compra (<?=$livro['Rest_venda']?>):</h5>
+                                <h5 style="color: red">Disponível para alugar (<?=$livro['Rest_aluguel']?>):</h5>
                             </div>
                     </div>
                     <div class="col-md-4" style="height:300px;">
                         <h4 class="pull-right" style="margin-top: 180px;">Preço Venda: R$ <?=$livro['PrecoVenda']?></h4><br>
                         <h4 class="pull-right">Preço Aluguel: R$ <?=$livro['PrecoAluguel']?></h4>
-                        <a href="<?=URL?>carrinho/adicionarIntem/<?=$livro['idLivro']?>/<?=$livro['Nome']?>/<?=$livro['PrecoVenda']?>/1/1" type="button" class="btn btn-primary btn-lg" style="bottom: 0px;position: absolute; right: 5px;">Comprar</a>
-                        <a href="<?=URL?>carrinho/adicionarIntem/<?=$livro['idLivro']?>/<?=$livro['Nome']?>/<?=$livro['PrecoAluguel']?>/1/2" type="button" class="btn btn-primary btn-lg" style="bottom: 0px;position: absolute; right: 120px;">Alugar</a>
+                        <?php if ($livro['Rest_venda'] > 0){?>
+                        <a href="<?=URL?>carrinho/adicionarIntem/<?=$livro['idLivro']?>/<?=$livro['Nome']?>/<?=$livro['PrecoVenda']?>/1/1/<?=$livro['Rest_venda']?>" type="button" class="btn btn-primary btn-lg" style="bottom: 0px;position: absolute; right: 5px;">Comprar</a>
+                        <?php }?>
+                        <?php if ($livro['Rest_aluguel'] > 0){?>
+                        <a href="<?=URL?>carrinho/adicionarIntem/<?=$livro['idLivro']?>/<?=$livro['Nome']?>/<?=$livro['PrecoAluguel']?>/1/2/<?=$livro['Rest_aluguel']?>" type="button" class="btn btn-primary btn-lg" style="bottom: 0px;position: absolute; right: 120px;">Alugar</a>
+                        <?php } if ($livro['Rest_aluguel'] == 0){?>
+                        <a href="<?=URL?>reservas/add/<?=$livro['idLivro']?>" type="button" class="btn btn-primary btn-lg" style="bottom: 0px;position: absolute; right: 120px;">Reservar</a>
+                        <?php } ?>
+                       
                     </div>
                  </div>
 

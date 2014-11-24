@@ -58,13 +58,13 @@
                          </a>
                     </li>
                    <li>
-                        <a href="<?php echo URL . 'alugueis'?>">
-                             Aluguéis
+                        <a href="<?php echo URL . 'aluguel/indexAdmin'?>">
+                             Alugueis
                          </a>
                     </li>
                    <li>
-                        <a href="<?php echo URL . 'clientes'?>">
-                             Clientes
+                        <a href="<?php echo URL . 'reservas/indexAdmin'?>">
+                             Reservas
                          </a>
                     </li>
                     
