@@ -62,7 +62,7 @@ class Reservas extends Controller
             $ReservaModel = $this->loadModel('ReservaModel');
             if ($ReservaModel->delete($livro_id)){
                 $this->setflash('Livro deletado com sucesso', array('class' => 'alert alert-success'));
-                 header('Location: '. URL);
+                 header('Location: '. URL . 'reservas');
                  exit;
             }else{
                 $this->setflash('Erro ao salvar', array('class' => 'alert alert-error'));

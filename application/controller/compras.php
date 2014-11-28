@@ -22,6 +22,17 @@ class Compras extends Controller{
        require 'application/views/compras/index.php';
        require 'application/views/_templates/footer.php';         
     }
+    
+    public function listAdmin()
+    {
+       $CompraModel = $this->loadModel('CompraModel');
+       $compras = $CompraModel->getAllAdmin();
+        
+      // var_dump($pedidos);die;
+       require 'application/views/_templates/header-admin.php';
+       require 'application/views/compras/list-admin.php';
+       require 'application/views/_templates/footer.php';         
+    }
 }
 
 ?>

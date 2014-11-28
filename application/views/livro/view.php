@@ -3,7 +3,7 @@
                 <div class="row panel panel-default">
                     <div class="col-md-4" style="margin-top: 10px;">
                         <div class="thumbnail" style="width:220px;">
-                            <img src="<?=PATH_PUBLIC?>img/padroes.jpg" alt="">
+                            <img src="<?=URL?>public/img/<?=$livro['imagem']?>" alt="" style="width: 200px; min-height: 300px">
                         
                             <div class="ratings">
                                 <p>
@@ -22,8 +22,8 @@
                                    
                                 <h2><a href="#"><?=$livro['Nome']?></a>
                                 </h2>
-                                <h5>Autor:</h5>
-                                <h5>Cód.</h5>
+                                <h5>Autor: <?=$livro['Autor']?></h5>
+                                <h5>Cód. <?=$livro['idLivro']?></h5>
                                 <h5 style="color: green">Disponível para compra (<?=$livro['Rest_venda']?>):</h5>
                                 <h5 style="color: red">Disponível para alugar (<?=$livro['Rest_aluguel']?>):</h5>
                             </div>

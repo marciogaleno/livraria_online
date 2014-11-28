@@ -43,11 +43,11 @@ class ClienteModel {
         }
         
         //Adicionando pessoa física
-        $sql = "INSERT INTO PessoaFisica SET Nome = :Nome, CPF = :CPF, RG = :RG,"
+        $sql = "INSERT INTO pessoafisica SET Nome = :Nome, CPF = :CPF, RG = :RG,"
                 . " DataNascimento = :DataNascimento, Cliente_idCliente = :Cliente_idCliente"; 
         
         $query = $this->db->prepare($sql);
-        //echo $cliente_id; die;
+        //var_dump($_POST['Nome']); die;
         $query->bindValue(':Nome', $_POST['Nome']);
         $query->bindValue(':CPF', $_POST['CPF']);
         $query->bindValue(':RG', $_POST['RG']);
@@ -88,7 +88,7 @@ class ClienteModel {
     
     function addCliente()
     {
-        $sql = "INSERT INTO Cliente SET EnderecoCli = :EnderecoCli, TelefoneCli = :TelefoneCli,"
+        $sql = "INSERT INTO cliente SET EnderecoCli = :EnderecoCli, TelefoneCli = :TelefoneCli,"
                 . " EmailCli = :EmailCli";
         
         $query = $this->db->prepare($sql); 

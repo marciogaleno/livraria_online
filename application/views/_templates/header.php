@@ -44,13 +44,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">Cadastrar</a>
-                    </li>
-                    <li>
-                        <a href="#">Minha conta</a>
-                    </li>
-                    <li>
-                        <a href="#">Contato</a>
+                        <a href="<?=URL?>cliente/add">Cadastrar</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -68,12 +62,6 @@
                         <ul class="dropdown-menu">
                         <li>
                             <a href="<?=URL?>conta"><i class="fa fa-fw fa-user"></i> Conta</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Meus dados</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Pedidos</a>
                         </li>
                         <li class="divider"></li>
                         <li>
@@ -103,7 +91,7 @@
                 <div class="list-group">
                     
                     <?php foreach ($categorias as $categoria):?>
-                    <a href="#" class="list-group-item"><?php echo $categoria['nome']?></a>
+                    <a href="<?=URL?>categorias/listaLivrosPorCategoria/<?=$categoria['idCategoria']?>" class="list-group-item"><?php echo $categoria['nome']?></a>
                     <?php endforeach;?>
                     
                 </div>

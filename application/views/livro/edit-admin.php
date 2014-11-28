@@ -1,6 +1,14 @@
 <h1>Editar Produto</h1>
-<form role="form" action="editAdmin" method="post">
+<form role="form" action="editAdmin" method="post" enctype="multipart/form-data">
     <input type="hidden" value="<?=$livro['idLivro']?>" name="idLivro">
+  <div class="form-group">
+    <label for="InputNome">Categoria:</label>
+    <select class="form-control" name="categoria_id" id="InputNome" placeholder="Digite o nome do livro">
+        <?php foreach ($categorias as $categoria):?>
+            <option value="<?=$categoria['idCategoria']?>"><?=$categoria['nome']?></option>
+        <?php endforeach;?>
+    </select>
+  </div>
   <div class="form-group">
     <label for="InputNome">Nome:</label>
     <input type="text" class="form-control" name="Nome" id="InputNome" value="<?=$livro['Nome']?>" placeholder="Digite o nome do livro">
@@ -22,10 +30,6 @@
     <input type="number" class="form-control" id="InputPrecoAluguel" name="PrecoAluguel"  value="<?=$livro['PrecoAluguel']?>"  placeholder="Digite o nome do autor">
   </div>
   <div class="form-group">
-    <label for="InputPrecoReserva">Preço reserva:</label>
-    <input type="number" class="form-control" id="InputPrecoReserva" name="PrecoReserva"  value="<?=$livro['PrecoReserva']?>" placeholder="Digite o nome do autor">
-  </div>
-  <div class="form-group">
     <label for="InputPrecoDescricao">Descrição:</label>
     <input type="text" class="form-control" id="InputPrecoDescricao" name="descricao" value="<?=$livro['descricao']?>" placeholder="Digite o nome do autor">
   </div>
@@ -37,6 +41,9 @@
     <label for="InputQuant">Quantidade alugar:</label>
     <input type="number" class="form-control" id="InputQuant" name="Quant_aluguel"  value="<?=$livro['Quant_aluguel']?>" placeholder="Digite o nome do autor">
   </div>
-    
+ <div class="form-group">
+    <label for="InputQuant">Imagem Livro:</label>
+    <input type="file" class="form-control" id="InputQuant" name="imagem" placeholder="Digite o nome do autor">
+  </div>    
   <button type="submit" class="btn btn-default">Submit</button>
 </form>

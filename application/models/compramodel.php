@@ -42,6 +42,24 @@ class CompraModel
         
         return $query->fetchAll();        
     }
+    
+    function getAllAdmin()
+    {
+       $sql = "SELECT c.*, l.*, pf.Nome as nome_cliente, pf.CPF FROM pedidos as p
+                LEFT JOIN compra as c ON  c.pedido_id = p.idPedido 
+                LEFT JOIN livro as l ON l.idLivro = c.Livro_idLivro 
+                LEFT JOIN cliente as cl ON cl.idCLiente = c.Cliente_idCliente 
+                LEFT JOIN pessoafisica as pf ON pf.Cliente_idCliente = cl.idCliente";
+        
+       $query = $this->db->prepare($sql);
+        
+        $query->bindValue(':Cliente_idCliente',$_SESSION['cliente_id'], PDO::PARAM_INT);  
+ 
+             //var_dump($livros); die;
+        $query->execute();
+        
+        return $query->fetchAll();        
+    }
 }
 
 ?>

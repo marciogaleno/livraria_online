@@ -11,7 +11,7 @@
   <tr>
     <td><?=$reserva['Nome']?></td>
     <td><?=$reserva['DataReserva']?></td>
-    <td><a href="<?=URL?>aluguel/renovar/<?=$reserva['idAluga']?>" class="btn btn-danger">Cancelar</a></td>
+    <td><a href="<?=URL?>reservas/delete/<?=$reserva['idReserva']?>" class="btn btn-danger">Cancelar</a></td>
   </tr>
   <?php endforeach;?>
 </tbody>

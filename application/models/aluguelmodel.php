@@ -35,7 +35,7 @@ class AluguelModel
     
     public function getAllAdmin()
     {
-        $sql = 'SELECT a.*, l.*,c.*, pf.Nome as NomeCliente, pf.CPF FROM Aluga as a
+        $sql = 'SELECT a.*, l.*,c.*, pf.Nome as NomeCliente, pf.CPF  FROM Aluga as a
                INNER JOIN livro as l ON l.idLivro = a.Livro_idLivro 
                INNER JOIN cliente as c ON c.idCliente = a.Cliente_idCliente 
                LEFT JOIN pessoafisica as pf ON pf.Cliente_idCliente = c.idCliente 

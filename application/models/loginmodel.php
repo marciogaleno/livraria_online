@@ -65,7 +65,7 @@ class LoginModel {
 //        }
         
          $sth = $this->db->prepare("SELECT *
-                                   FROM   Cliente
+                                   FROM   cliente
                                    WHERE  (EmailCli = :EmailCli)");  
          
          $sth->execute(array(':EmailCli' => $result['email']));

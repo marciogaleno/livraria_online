@@ -1,5 +1,13 @@
 <h1>Cadastrar Produto</h1>
-<form role="form" action="add" method="post">
+<form role="form" action="add" method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="InputNome">Categoria:</label>
+    <select class="form-control" name="categoria_id" id="InputNome" placeholder="Digite o nome do livro">
+        <?php foreach ($categorias as $categoria):?>
+            <option value="<?=$categoria['idCategoria']?>"><?=$categoria['nome']?></option>
+        <?php endforeach;?>
+    </select>
+  </div>
   <div class="form-group">
     <label for="InputNome">Nome:</label>
     <input type="text" class="form-control" name="Nome" id="InputNome" placeholder="Digite o nome do livro">
@@ -21,10 +29,6 @@
     <input type="number" class="form-control" id="InputPrecoAluguel" name="PrecoAluguel" placeholder="Digite o nome do autor">
   </div>
   <div class="form-group">
-    <label for="InputPrecoReserva">Preço reserva:</label>
-    <input type="number" class="form-control" id="InputPrecoReserva" name="PrecoReserva" placeholder="Digite o nome do autor">
-  </div>
-  <div class="form-group">
     <label for="InputPrecoDescricao">Descrição:</label>
     <input type="text" class="form-control" id="InputPrecoDescricao" name="descricao"placeholder="Digite o nome do autor">
   </div>
@@ -35,6 +39,10 @@
   <div class="form-group">
     <label for="InputQuant">Quantidade Aluguel:</label>
     <input type="number" class="form-control" id="InputQuant" name="Quant_aluguel" placeholder="Digite o nome do autor">
+  </div>
+  <div class="form-group">
+    <label for="InputQuant">Imagem Livro:</label>
+    <input type="file" class="form-control" id="InputQuant" name="imagem" placeholder="Digite o nome do autor">
   </div>
     
   <button type="submit" class="btn btn-default">Submit</button>

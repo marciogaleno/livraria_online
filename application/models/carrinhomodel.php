@@ -65,7 +65,7 @@ class CarrinhoModel
      */
     public function pagarCompra($livro_id, $livro, $pedido_id)
     {
-        $sql = "INSERT INTO Compra " 
+        $sql = "INSERT INTO compra " 
                . "(DataCompra,pedido_id, Cliente_idCliente,Livro_idLivro,Quantidade,ValordaCompra) "
                . "VALUES ("
                . ":DataCompra, "
@@ -90,7 +90,7 @@ class CarrinhoModel
              //Diminuindo a quantidade restante de livros para compra
             $livro['Rest'] -= $livro['quant'];
             
-            $sql = "UPDATE Livro SET Rest_venda = :Rest_venda WHERE idLivro = :idLivro";
+            $sql = "UPDATE livro SET Rest_venda = :Rest_venda WHERE idLivro = :idLivro";
             
              $query = $this->db->prepare($sql);
              
@@ -141,7 +141,7 @@ class CarrinhoModel
              //Diminuindo a quantidade restante de livros para compra
             $livro['Rest'] -= $livro['quant'];
             
-            $sql = "UPDATE Livro SET Rest_aluguel = :Rest_aluguel WHERE idLivro = :idLivro";
+            $sql = "UPDATE livro SET Rest_aluguel = :Rest_aluguel WHERE idLivro = :idLivro";
             
              $query = $this->db->prepare($sql);
              

@@ -9,7 +9,7 @@
     <th>Data Devolução</th>
     <th>Multa</th>
     <th>Nome Cliente</th>
-    <th>CPF/CNPJ</th>
+    <th>CPF</th>
     <th>Ações</th>
   </tr>
 </thead>

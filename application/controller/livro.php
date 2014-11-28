@@ -31,6 +31,20 @@ class Livro extends Controller
        //var_dump($_GET); die;
     }
     
+    function listCat()
+    {   
+       $livroModel = $this->loadModel('LivroModel');
+       $livros = $livroModel->getAll();
+       
+       $categoriaModel = $this->loadModel('CategoriaModel');
+       $categorias = $categoriaModel->getAll();
+
+       require 'application/views/_templates/header.php';
+       require 'application/views/livro/index.php';
+       require 'application/views/_templates/footer.php';  
+       //var_dump($_GET); die;
+    }
+    
     function view($id = null)
     {        
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -52,6 +66,7 @@ class Livro extends Controller
     {    
         Auth::estaLogado();
         
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // load model, perform an action on the model
             $livroModel = $this->loadModel('LivroModel');
@@ -62,7 +77,11 @@ class Livro extends Controller
             }else{
                 $this->setflash('Erro ao salvar', array('class' => 'alert alert-error'));
             }
-        }        
+        }   
+        
+        $categoriaModel = $this->loadModel('CategoriaModel');
+        $categorias = $categoriaModel->getAll();
+        
         require 'application/views/_templates/header-admin.php';
         require 'application/views/livro/add.php';
         require 'application/views/_templates/footer.php';         
@@ -99,7 +118,10 @@ class Livro extends Controller
             }
         }       
          // load model, perform an action on the model
-        $livro = $livroModel->get($livro_id);          
+        $livro = $livroModel->get($livro_id);  
+        
+        $categoriaModel = $this->loadModel('CategoriaModel');
+        $categorias = $categoriaModel->getAll();    
         
         require 'application/views/_templates/header-admin.php';
         require 'application/views/livro/edit-admin.php';

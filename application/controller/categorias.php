@@ -24,6 +24,23 @@ class Categorias extends Controller
        require 'application/views/_templates/footer.php';  
 
     }
+     function listaLivrosPorCategoria($id)
+    {   
+       $livroModel = $this->loadModel('LivroModel');
+       $livros = $livroModel->getLivrosPorCategoria($id);
+       
+       $categoriaModel = $this->loadModel('CategoriaModel');
+       $categorias = $categoriaModel->getAll();
+       
+       $categoria2 = $categoriaModel->get($id);
+       //var_dump($categoria2['nome']); die;
+       $categoria_nome = $categoria2['nome'];
+       
+       require 'application/views/_templates/header.php';
+       require 'application/views/categorias/lista-produtos.php';
+       require 'application/views/_templates/footer.php';  
+       //var_dump($_GET); die;
+    }
     
     function add()
     {    
@@ -31,9 +48,11 @@ class Categorias extends Controller
             // load model, perform an action on the model
             $categoriaModel = $this->loadModel('CategoriaModel');
             if ($categoriaModel->add($_POST)){
-                $message = $this->setflash('Salvo com sucesso', array('class' => 'alert alert-success'));
+                $this->setflash('Salvo com sucesso', array('class' => 'alert alert-success'));
+                 header('Location: '. URL . 'categorias' . '/index/');
+                 exit;
             }else{
-                $message = $this->setflash('Erro ao salvar', array('class' => 'alert alert-error'));
+                $this->setflash('Erro ao salvar', array('class' => 'alert alert-error'));
             }
         }        
        require 'application/views/_templates/header-admin.php';
@@ -48,11 +67,10 @@ class Categorias extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // load model, perform an action on the model
             if ($CategoriaModel->edit($_POST)){
-                $message = $this->setflash('Salvo com sucesso', array('class' => 'alert alert-success'));
-                
-                //header('Location: '. URL . $this->name . '/listAdmin/'. $livro_id);
+                $this->setflash('Salvo com sucesso', array('class' => 'alert alert-success'));
+                 header('Location: '. URL . 'categorias' . '/index/');
             }else{
-                $message = $this->setflash('Erro ao salvar', array('class' => 'alert alert-error'));
+                $this->setflash('Erro ao salvar', array('class' => 'alert alert-error'));
             }
         }       
          // load model, perform an action on the model
