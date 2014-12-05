@@ -17,9 +17,10 @@
     <td><?=$reserva['CPF']?></td>
 
     <td><a href="<?=URL?>aluguel/add/<?=$reserva['idReserva']?>/<?=$reserva['idCliente']?>/<?=$reserva['idLivro']?>/<?=$reserva['PrecoAluguel']?>" class="btn btn-primary">Aprovar</a></td>
-    <td><a href="<?=URL?>reservas/delete/<?=$reserva['idReserva']?>" class="btn btn-danger">Cancelar</a></td>
+    <td><a href="<?=URL?>reservas/deleteAdmin/<?=$reserva['idReserva']?>" class="btn btn-danger delete">Cancelar</a></td>
 
   <?php endforeach;?>
 </tbody>
 </table>
+<?php include 'application/views/elements/deletemodal.php';?>
 

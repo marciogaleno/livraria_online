@@ -70,11 +70,11 @@ class ReservaModel
     
     public function delete($id)
     {
-        $sql = "DELETE * FROM reserva WHERE idReserva = :idReserva";
+        $sql = "DELETE FROM reserva WHERE idReserva = :idReserva";
         $query = $this->db->prepare($sql); 
         
        // $query->bindValue(':pedido_id', 1, PDO::PARAM_INT);
-        $query->bindValue(':idReserva', $id,PDO::PARAM_INT);  
+        $query->bindValue(':idReserva', $id, PDO::PARAM_INT);  
         
         if ($query->execute()){
             return true;

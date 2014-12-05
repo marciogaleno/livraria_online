@@ -73,6 +73,8 @@ class LivroModel
                 . "descricao = :descricao,"
                 . "Quant_venda = :Quant_venda,"
                 . "Quant_aluguel = :Quant_aluguel, "
+                . "Rest_venda = :Rest_venda, "
+                . "Rest_aluguel = :Rest_aluguel, "
                 . "categoria_id = :categoria_id,"
                 . "imagem = :imagem "
                 . "WHERE idLivro = :idLivro";
@@ -89,6 +91,8 @@ class LivroModel
         $query->bindValue(':descricao', $livro['descricao'], PDO::PARAM_STR);
         $query->bindValue(':Quant_venda',  (int)$livro['Quant_venda'], PDO::PARAM_INT);
         $query->bindValue(':Quant_aluguel',  (int)$livro['Quant_aluguel'], PDO::PARAM_INT);
+        $query->bindValue(':Rest_venda',  (int)$livro['Quant_venda'], PDO::PARAM_INT);
+        $query->bindValue(':Rest_aluguel',  (int)$livro['Quant_aluguel'], PDO::PARAM_INT);
         $query->bindValue(':idLivro', (int)$livro['idLivro'], PDO::PARAM_INT);
         $query->bindValue(':categoria_id', (int)$livro['categoria_id'], PDO::PARAM_INT);
         

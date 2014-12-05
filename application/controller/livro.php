@@ -64,7 +64,7 @@ class Livro extends Controller
     
     function add()
     {    
-        Auth::estaLogado();
+        Auth::estaLogadoAdmin();
         
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -89,7 +89,7 @@ class Livro extends Controller
     
     function listAdmin()
     {
-        Auth::estaLogado();
+        Auth::estaLogadoAdmin();
         // load model, perform an action on the model
         $livroModel = $this->loadModel('LivroModel');
         $livros = $livroModel->getAll();  
@@ -102,7 +102,7 @@ class Livro extends Controller
      
     function editAdmin($livro_id = null)
     {    
-        Auth::estaLogado();
+        Auth::estaLogadoAdmin();
         
         $livroModel = $this->loadModel('LivroModel');
         
@@ -130,7 +130,7 @@ class Livro extends Controller
     
     function delete($id = null)
     {    
-        Auth::estaLogado();
+        Auth::estaLogadoAdmin();
         
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             // load model, perform an action on the model

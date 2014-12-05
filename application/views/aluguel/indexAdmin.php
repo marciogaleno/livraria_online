@@ -27,7 +27,7 @@
     <?php if ($aluguel['ValorMulta'] > 0){ ?>
       <td><h6><b>Livro com multa. Por favor, Comparecer a livraria.</b></h6></td>
     <?php }else{?>
-    <td><a href="<?=URL?>aluguel/renovar/<?=$aluguel['idAluga']?>" class="btn btn-primary">Renovar</a></td>
+    <td><a href="<?=URL?>aluguel/renovarAdmin/<?=$aluguel['idAluga']?>" class="btn btn-primary">Renovar</a></td>
     <?php }?>
   </tr>
   <?php endforeach;?>

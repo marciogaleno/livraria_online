@@ -12,6 +12,15 @@
  */
 class Categorias extends Controller 
 {
+    
+    function __construct()
+    {
+        parent::__construct();
+        
+         
+        
+    }  
+    
     function index()
     {   
        $categoriaModel = $this->loadModel('CategoriaModel');
@@ -43,7 +52,8 @@ class Categorias extends Controller
     }
     
     function add()
-    {    
+    {   
+        Auth::estaLogadoAdmin();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // load model, perform an action on the model
             $categoriaModel = $this->loadModel('CategoriaModel');
@@ -61,7 +71,8 @@ class Categorias extends Controller
     }
     
     function edit($categoria_id = null)
-    {    
+    {   
+        Auth::estaLogadoAdmin();
         $CategoriaModel = $this->loadModel('CategoriaModel');
         
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -82,13 +93,17 @@ class Categorias extends Controller
     }  
     
     function delete($id = null)
-    {        
+    {    
+        Auth::estaLogadoAdmin();
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             // load model, perform an action on the model
             $CategoriaModel = $this->loadModel('CategoriaModel');
-            $livro = $CategoriaModel->delete($id);
-            $message = $this->setflash('Salvo com sucesso', array('class' => 'alert alert-success'));
-            header('Location: '. URL . $this->name . '/listAdmin/');
+            if ($livro = $CategoriaModel->delete($id)){
+                $message = $this->setflash('Excluído com sucesso!', array('class' => 'alert alert-success'));
+                header('Location: '. URL . 'categorias'. '/index/');
+            }else{
+                $this->setflash('Erro ao salvar', array('class' => 'alert alert-error'));
+            }
         }
 
     }    

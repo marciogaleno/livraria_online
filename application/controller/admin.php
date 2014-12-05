@@ -42,4 +42,12 @@ class Admin extends Controller
         require 'application/views/admin/login.php';
         require 'application/views/_templates/footer.php';  
     }
+    
+    function logout()
+    {
+        $login_model = $this->loadModel('LoginModel');
+        $login_model->logout();
+        // redirect user to base URL
+        header('location: ' . URL . '/admin/login');
+    }
 }

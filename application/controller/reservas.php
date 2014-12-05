@@ -32,6 +32,7 @@ class Reservas extends Controller
     
     public function indexAdmin()
     {  
+       Auth::estaLogadoAdmin();
        $ReservaModel = $this->loadModel('ReservaModel');
        $reservas = $ReservaModel->getAllAdmin();
 
@@ -61,8 +62,22 @@ class Reservas extends Controller
             // load model, perform an action on the model
             $ReservaModel = $this->loadModel('ReservaModel');
             if ($ReservaModel->delete($livro_id)){
-                $this->setflash('Livro deletado com sucesso', array('class' => 'alert alert-success'));
+                $this->setflash('Reserva cancelada com sucesso', array('class' => 'alert alert-success'));
                  header('Location: '. URL . 'reservas');
+                 exit;
+            }else{
+                $this->setflash('Erro ao salvar', array('class' => 'alert alert-error'));
+            }
+        }                 
+    }
+    public function deleteAdmin($livro_id = null)
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            // load model, perform an action on the model
+            $ReservaModel = $this->loadModel('ReservaModel');
+            if ($ReservaModel->delete($livro_id)){
+                $this->setflash('Reserva cancelada com sucesso', array('class' => 'alert alert-success'));
+                 header('Location: '. URL . 'reservas/' . 'indexAdmin');
                  exit;
             }else{
                 $this->setflash('Erro ao salvar', array('class' => 'alert alert-error'));

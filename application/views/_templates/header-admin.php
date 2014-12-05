@@ -99,7 +99,7 @@
                         <ul class="dropdown-menu">
                         <li class="divider"></li>
                         <li>
-                            <a href="<?=URL?>login/logout"><i class="fa fa-fw fa-power-off"></i>Sair</a>
+                            <a href="<?=URL?>admin/logout"><i class="fa fa-fw fa-power-off"></i>Sair</a>
                         </li>
                         </ul>
                     <?php }else {?>

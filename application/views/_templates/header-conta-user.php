@@ -46,12 +46,6 @@
                     <li>
                         <a href="#">Cadastrar</a>
                     </li>
-                    <li>
-                        <a href="<?=URL?>conta">Minha conta</a>
-                    </li>
-                    <li>
-                        <a href="#">Contato</a>
-                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php 
@@ -68,12 +62,6 @@
                         <ul class="dropdown-menu">
                         <li>
                             <a href="<?=URL?>conta"><i class="fa fa-fw fa-user"></i> Conta</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Meus dados</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Pedidos</a>
                         </li>
                         <li class="divider"></li>
                         <li>
@@ -100,7 +88,6 @@
             <div class="col-md-3">
                 <p class="lead"></p>
                 <div class="list-group">
-                    <a href="<?=URL?>compras" class="list-group-item">Meus Pedidos</a>
                     <a href="<?=URL?>compras" class="list-group-item">Compras</a>
                     <a href="<?=URL?>aluguel" class="list-group-item">Alugueis</a>
                     <a href="<?=URL?>reservas" class="list-group-item">Reservas</a>                                        

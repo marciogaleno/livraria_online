@@ -31,6 +31,7 @@ class Aluguel extends Controller
     
     public function indexAdmin()
     {  
+       Auth::estaLogadoAdmin();
        $AluguelModel = $this->loadModel('AluguelModel');
        $alugueis = $AluguelModel->getAllAdmin();
        
@@ -81,6 +82,26 @@ class Aluguel extends Controller
        require 'application/views/_templates/header-conta-user.php';
        require 'application/views/aluguel/renovar.php';
        require 'application/views/_templates/footer.php';           
+    }
+    
+    public function renovarAdmin($id)
+    {  
+        Auth::estaLogadoAdmin();
+        $AluguelModel = $this->loadModel('AluguelModel');
+        
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {           
+           
+            
+            if ($AluguelModel->renovar($_POST['idAluga'])){
+                $this->setflash('Livro renovado com sucesso', array('class' => 'alert alert-success'));
+                 header('Location: '. URL . 'aluguel'. '/indexAdmin/');
+                 exit;                
+            }else{
+                $this->setflash('Erro ao renovado livro', array('class' => 'alert alert-success'));
+                header('Location: '. URL . 'aluguel'. '/indexAdmin/');  
+                exit;
+            }
+        }          
     }
     
     function add($reserva_id, $cliente_id, $livro_id, $preco_aluguel)
