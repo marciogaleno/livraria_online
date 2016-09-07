@@ -20,7 +20,7 @@ class Aluguel extends Controller
        foreach ($alugueis as $aluguel) {
            foreach ($nao_devolvidos as $nao_devolvido) {
                if ($aluguel['idAluga'] == $nao_devolvido['idAluga']){
-                   $AluguelModel->aplicaMulta($nao_devolvido['idAluga'],$nao_devolvido['DataDevolucao']);
+                   $AluguelModel->aplicaMulta($nao_devolvido['idAluga'],$nao_devolvido['DataPrevistaEntrega'], $nao_devolvido['DataDevolucao']);
                }
            }
        }
@@ -42,7 +42,7 @@ class Aluguel extends Controller
        foreach ($alugueis as $aluguel) {
            foreach ($nao_devolvidos as $nao_devolvido) {
                if ($aluguel['idAluga'] == $nao_devolvido['idAluga']){
-                   $AluguelModel->aplicaMulta($nao_devolvido['idAluga'],$nao_devolvido['DataDevolucao']);
+                   $AluguelModel->aplicaMulta($nao_devolvido['idAluga'], $nao_devolvido['DataPrevistaEntrega'], $nao_devolvido['DataDevolucao']);
                }
            }
        }
@@ -91,13 +91,31 @@ class Aluguel extends Controller
         
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {           
            
-            
-            if ($AluguelModel->renovar($_POST['idAluga'])){
+            if ($AluguelModel->renovar($id)){
                 $this->setflash('Livro renovado com sucesso', array('class' => 'alert alert-success'));
                  header('Location: '. URL . 'aluguel'. '/indexAdmin/');
                  exit;                
             }else{
                 $this->setflash('Erro ao renovado livro', array('class' => 'alert alert-success'));
+                header('Location: '. URL . 'aluguel'. '/indexAdmin/');  
+                exit;
+            }
+        }          
+    }
+
+    public function devolverAdmin($id)
+    {  
+        Auth::estaLogadoAdmin();
+        $AluguelModel = $this->loadModel('AluguelModel');
+        
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {           
+           
+            if ($AluguelModel->devolver($id)){
+                $this->setflash('Livro devolvido com sucesso', array('class' => 'alert alert-success'));
+                 header('Location: '. URL . 'aluguel'. '/indexAdmin/');
+                 exit;                
+            }else{
+                $this->setflash('Erro ao devovler livro', array('class' => 'alert alert-success'));
                 header('Location: '. URL . 'aluguel'. '/indexAdmin/');  
                 exit;
             }

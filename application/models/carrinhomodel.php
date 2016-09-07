@@ -115,13 +115,13 @@ class CarrinhoModel
     {    
         
         $sql = "INSERT INTO Aluga " 
-               . "(pedido_id, DataAluguel, ValorAluguel,ValorMulta,DataDevolucao,Cliente_idCLiente,Livro_idLivro) "
+               . "(pedido_id, DataAluguel, ValorAluguel,ValorMulta,DataPrevistaEntrega,Cliente_idCLiente,Livro_idLivro) "
                . " VALUES ("
                . ":pedido_id, "
                . ":DataAluguel, "
                . ":ValorAluguel, "
                . ":ValorMulta, "
-               . ":DataDevolucao, "
+               . ":DataPrevistaEntrega, "
                . ":Cliente_idCLiente, "
                . ":Livro_idLivro)";
        /// echo $livro_id; echo $livro['quant']; echo $livro['ValordaCompra']; die;
@@ -132,7 +132,7 @@ class CarrinhoModel
         $query->bindValue(':DataAluguel', date("y/m/d"), PDO::PARAM_STR);
         $query->bindValue(':ValorAluguel', (float)$livro['ValordaCompra']);
         $query->bindValue(':ValorMulta',(float)0.0);
-        $query->bindValue(':DataDevolucao', date('y/m/d', strtotime("+13 days")),  PDO::PARAM_STR);
+        $query->bindValue(':DataPrevistaEntrega', date('y/m/d', strtotime("+13 days")),  PDO::PARAM_STR);
         $query->bindValue(':Cliente_idCLiente', (int)$_SESSION['cliente_id'], PDO::PARAM_INT);
         $query->bindValue(':Livro_idLivro', $livro_id, PDO::PARAM_INT);
         

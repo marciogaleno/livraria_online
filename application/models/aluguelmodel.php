@@ -51,12 +51,12 @@ class AluguelModel
     public function renovar($id_aluga)
     {
         $sql = "UPDATE Aluga SET
-               DataDevolucao = :DataDevolucao
+               DataPrevistaEntrega = :DataPrevistaEntrega
                WHERE idAluga = :idAluga";     
         
         $query = $this->db->prepare($sql); 
 
-        $query->bindValue(':DataDevolucao', date('y/m/d', strtotime("+13 days")));
+        $query->bindValue(':DataPrevistaEntrega', date('y/m/d', strtotime("+13 days")));
         $query->bindValue(':idAluga', $id_aluga);
         
         if ($query->execute()){
@@ -66,6 +66,25 @@ class AluguelModel
         return false;
     }
     
+    public function devolver($id_aluga)
+    {
+
+        $sql = "UPDATE Aluga SET
+               DataDevolucao = :DataDevolucao
+               WHERE idAluga = :idAluga";     
+        
+        $query = $this->db->prepare($sql); 
+
+        $query->bindValue(':DataDevolucao', date('Y/m/d'));
+        $query->bindValue(':idAluga', $id_aluga);
+        
+        if ($query->execute()){
+            return true;
+        }
+        
+        return false;
+    }
+
     public function get($id)
     {
         $sql = "SELECT * FROM Aluga as a
@@ -104,7 +123,7 @@ class AluguelModel
    {
         $sql = 'SELECT * FROM Aluga as a
                INNER JOIN livro as l ON l.idLivro = a.Livro_idLivro 
-               WHERE a.DataDevolucao < :data_atual';
+               WHERE a.DataPrevistaEntrega < :data_atual OR a.DataDevolucao >  a.DataPrevistaEntrega';
         
          $query = $this->db->prepare($sql); 
          
@@ -115,10 +134,15 @@ class AluguelModel
          return $query->fetchAll();
    }
    
-   function aplicaMulta($aluguel_id, $data_devolucao)
-   {
-       $dias = $this->calculaDiferenca($data_devolucao, date('y-m-d'));
-       //echo $dias;
+   function aplicaMulta($aluguel_id, $data_prevista_entrega, $data_devolucao)
+   {  
+       // Caso não tenha devolvido ainda, a data para o cálculo será da data prevista de entrega a data atual
+       if (empty($data_devolucao)) {
+          $dias = $this->calculaDiferenca($data_prevista_entrega, date('y-m-d'));
+       } else { // caso tenha devoldido, o cálculo será da data prevista de entrega a data de devolucao
+          $dias = $this->calculaDiferenca($data_prevista_entrega, $data_devolucao);
+       }
+              //echo $dias;
        $multa = 1.0 * $dias;
        
        //echo $multa; die;
@@ -128,7 +152,7 @@ class AluguelModel
                WHERE idAluga = :idAluga";     
         
         $query = $this->db->prepare($sql); 
-
+        // die($multa); die;
         $query->bindValue(':idAluga',$aluguel_id);
         $query->bindValue(':ValorMulta', $multa);
         

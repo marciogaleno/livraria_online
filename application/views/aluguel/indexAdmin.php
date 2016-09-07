@@ -6,6 +6,7 @@
     <th>Autor</th> 
     <th>Preco Aluguel</th>
     <th>Data Saída</th>
+    <th>Data Prevista Entrega</th>
     <th>Data Devolução</th>
     <th>Multa</th>
     <th>Nome Cliente</th>
@@ -20,15 +21,15 @@
     <td><?=$aluguel['Autor']?></td>
     <td><?=$aluguel['PrecoAluguel']?></td>
     <td><?=$aluguel['DataAluguel']?></td>
+    <td><?=$aluguel['DataPrevistaEntrega']?></td>
     <td><?=$aluguel['DataDevolucao']?></td>
     <td><?=$aluguel['ValorMulta']?></td>
     <td><?=$aluguel['NomeCliente']?></td>
     <td><?=$aluguel['CPF']?></td>
-    <?php if ($aluguel['ValorMulta'] > 0){ ?>
-      <td><h6><b>Livro com multa. Por favor, Comparecer a livraria.</b></h6></td>
-    <?php }else{?>
-    <td><a href="<?=URL?>aluguel/renovarAdmin/<?=$aluguel['idAluga']?>" class="btn btn-primary">Renovar</a></td>
-    <?php }?>
+    <td><a href="<?=URL?>aluguel/renovarAdmin/<?=$aluguel['idAluga']?>" class="btn btn-primary">Renovar</a>
+    <?php if (empty($aluguel['DataDevolucao'])) {?>
+    <td><a href="<?=URL?>aluguel/devolverAdmin/<?=$aluguel['idAluga']?>" class="btn btn-primary">Registrar Devolução</a></td>
+    <?php } ?>
   </tr>
   <?php endforeach;?>
 </tbody>
