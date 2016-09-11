@@ -11,8 +11,8 @@
  verbose="true"
  bootstrap="./vendor/autoload.php">
   <testsuites>
-    <testsuite name="tests">
-      <directory>./tests/</directory>
+    <testsuite name="controller">
+      <directory>tests/controller</directory>
     </testsuite>
   </testsuites>
 

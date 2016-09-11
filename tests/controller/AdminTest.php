@@ -11,13 +11,11 @@ class AdminTest extends PHPUnit
 
 	public $admin;
 	protected $_SERVER;
-	protected $url;
 
 	public function setUp()
 	{	
 		@session_start();
 		parent::setup();
-		$this->url = 'http://localhost/livraria/';
 
 		$this->admin = new Admin();
 
@@ -42,7 +40,7 @@ class AdminTest extends PHPUnit
 
  		ob_end_clean();
 
- 		$this->assertContains('location: ' . $this->url . 'admin/index', $headers_list);
+ 		$this->assertContains('location: ' . URL . 'admin/index', $headers_list);
 		
 	}
 
@@ -65,7 +63,7 @@ class AdminTest extends PHPUnit
 
  		ob_end_clean();
 
- 		$this->assertContains('location: ' . $this->url . 'admin/login', $headers_list);
+ 		$this->assertContains('location: ' . URL . 'admin/login', $headers_list);
 		
 	}
 
@@ -85,7 +83,7 @@ class AdminTest extends PHPUnit
 
  		ob_end_clean();
 
- 		$this->assertContains('location: ' . $this->url . 'admin/login', $headers_list);
+ 		$this->assertContains('location: ' . URL . 'admin/login', $headers_list);
 		
 	}
 }
