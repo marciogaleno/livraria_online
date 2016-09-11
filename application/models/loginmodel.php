@@ -129,17 +129,18 @@ class LoginModel {
             // return true to make clear the login was successful
             return true;
 
-        } else {
-            // increment the failed login counter for that user
-            $sql = "UPDATE users
-                    SET user_failed_logins = user_failed_logins+1, user_last_failed_login = :user_last_failed_login
-                    WHERE user_name = :user_name OR user_email = :user_name";
-            $sth = $this->db->prepare($sql);
-            $sth->execute(array(':user_name' => $_POST['user_name'], ':user_last_failed_login' => time() ));
-            // feedback message
-            $_SESSION["feedback_negative"][] = FEEDBACK_PASSWORD_WRONG;
-            return false;
-        }
+        } 
+        // else {
+        //     // increment the failed login counter for that user
+        //     $sql = "UPDATE users
+        //             SET user_failed_logins = user_failed_logins+1, user_last_failed_login = :user_last_failed_login
+        //             WHERE user_name = :user_name OR user_email = :user_name";
+        //     $sth = $this->db->prepare($sql);
+        //     $sth->execute(array(':user_name' => $_POST['user_name'], ':user_last_failed_login' => time() ));
+        //     // feedback message
+        //     $_SESSION["feedback_negative"][] = FEEDBACK_PASSWORD_WRONG;
+        //     return false;
+        // }
 
         // default return
         return false;

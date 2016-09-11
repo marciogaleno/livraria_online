@@ -5,6 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 class Admin extends Controller
 {
     function __construct()
@@ -48,6 +49,6 @@ class Admin extends Controller
         $login_model = $this->loadModel('LoginModel');
         $login_model->logout();
         // redirect user to base URL
-        header('location: ' . URL . '/admin/login');
+        header('location: ' . URL . 'admin/login');
     }
 }

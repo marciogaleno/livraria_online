@@ -1,0 +1,45 @@
+build_settings:
+    ignore:
+        - "vendor"
+        - "tests"
+        - "Dockerfile"
+        - "Dockerfile.save"
+
+test:
+    php_unit:
+        config:
+            - "phpunit.xml"
+        directory:
+            - "tests/"
+        coverage: "--coverage-html"
+    # php_loc:
+    #     directory: "src"
+    
+    # lint:
+    #     directories:
+    #       - "src/"
+    #       - "tests/"
+
+    php_code_sniffer:
+        standard: "PSR2"
+        allowed_errors: -1
+        allowed_warnings: -1
+        ignore:
+            - "public"
+            - "tests"
+            - "vendor"
+            - "Dockerfile"
+            - "Dockerfile.save"
+            - "deployer.phar"
+            - "docker-compose.yml"
+            - "phpci.yml.dist"
+            - "phpci.yml.save"
+            - "phpunit.xml"
+            
+failure:
+    email:
+        committer: true
+
+success:
+    shell: 
+        - "cd %BUILD_PATH% && dep deploy producao"
