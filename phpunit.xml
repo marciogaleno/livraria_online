@@ -12,20 +12,16 @@
  bootstrap="./vendor/autoload.php">
   <testsuites>
     <testsuite name="tests">
-      <directory>./tests</directory>
+      <directory>./tests/</directory>
     </testsuite>
   </testsuites>
 
-<!--     <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">application</directory>
-
-            <exclude>
-                <file>application/</file>
-            </exclude>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./application/</directory>
         </whitelist>
     </filter>
- -->
+
   <logging>
       <log type="coverage-html"
            target="/tmp/coverage"
