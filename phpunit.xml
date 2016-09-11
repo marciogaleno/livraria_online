@@ -32,6 +32,9 @@
            highLowerBound="70"/>
 
       <log type="json" target="/tmp/log_phpunit.json"/>
+      <log type="tap" target="/tmp/log_phpunit.tap"/>
+      <log type="junit" target="/tmp/log_phpunit.xml" logIncompleteSkipped="false"/>
+      <log type="testdox-text" target="/tmp/log_phpunit.txt"/>
   </logging>
 
 </phpunit>
