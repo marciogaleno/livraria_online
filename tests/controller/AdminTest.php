@@ -37,7 +37,7 @@ class AdminTest extends PHPUnit
 
  		$headers_list = xdebug_get_headers();
  		header_remove();
-
+ 		var_dump($headers_list);
  		ob_end_clean();
 
  		$this->assertContains('location: ' . URL . 'admin/index', $headers_list);
