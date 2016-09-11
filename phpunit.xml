@@ -30,6 +30,8 @@
            highlight="true"
            lowUpperBound="35"
            highLowerBound="70"/>
+
+      <log type="json" target="/tmp/log_phpunit.json"/>
   </logging>
 
 </phpunit>
