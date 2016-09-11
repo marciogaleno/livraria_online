@@ -9,7 +9,7 @@
  stopOnIncomplete="false"
  stopOnRisky="false"
  verbose="true">
- 
+
   <testsuites>
     <testsuite name="controller">
       <directory>tests/controller</directory>
@@ -24,7 +24,7 @@
 
   <logging>
       <log type="coverage-html"
-           target="/tmp/coverage"
+           target="/var/www/html/relatorio_testes_livraria_online"
            charset="UTF-8"
            yui="true"
            highlight="true"

@@ -9,6 +9,7 @@ test:
     php_unit:
         config:
             - "phpunit.xml"
+        run_from: "./vendor/bin/phpunit -v  tests"
         directory:
             - "tests/"
         coverage: "--coverage-html"
