@@ -7,11 +7,10 @@ build_settings:
 
 test:
     php_unit:
-        config:
-            - "phpunit.xml"
         directory:
             - "tests/"
-        coverage: "--coverage-html"
+        args: "./vendor/bin/phpunit tests"
+
     # php_loc:
     #     directory: "src"
     
