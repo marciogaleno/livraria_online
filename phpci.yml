@@ -8,8 +8,8 @@ build_settings:
 test:
     php_unit:
         directory:
-            - "tests/"
-        args: "./vendor/bin/phpunit tests"
+            - "tests/controller"
+        args: "tests"
 
     # php_loc:
     #     directory: "src"
