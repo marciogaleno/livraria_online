@@ -1,5 +1,5 @@
 --TEST--
-phpunit FatalTest --process-isolation ../_files/FatalTest.php
+phpunit FatalTest ../_files/FatalTest.php
 --FILE--
 <?php
 $_SERVER['argv'][1] = '--no-configuration';
@@ -15,7 +15,7 @@ PHPUnit %s by Sebastian Bergmann and contributors.
 
 E
 
-Time: %s, Memory: %s
+Time: %s, Memory: %sMb
 
 There was 1 error:
 

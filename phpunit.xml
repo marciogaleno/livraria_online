@@ -9,7 +9,8 @@
  stopOnIncomplete="false"
  stopOnRisky="false"
  verbose="true"
- bootstrap="vendor/autoload.php">
+ bootstrap="vendor/autoload.php"
+ log-junit="tmp/log_phpunit.txt">
 
   <testsuites>
     <testsuite name="controller">
