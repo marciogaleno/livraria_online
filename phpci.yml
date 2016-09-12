@@ -7,8 +7,6 @@ build_settings:
 
 test:
     php_unit:
-        directory:
-            - "tests/controller"
         args: "tests"
 
     # php_loc:
