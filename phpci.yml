@@ -9,8 +9,9 @@ build_settings:
 
 setup:
     shell: 
-        - "cd application/config && mv config.php.dist config.php"
         - "mv .htaccess.dist .htaccess"
+        - "cd application/config && mv config.php.dist config.php && ls -la"
+        - "cd ../../ && ls"
 
 
 test:
