@@ -18,9 +18,9 @@ ini_set("display_errors", 1);
  * Configuration for: Project URL/
  * Put your URL here, for local development "127.0.0.1" or "localhost" (plus sub-folder) is fine
  */
-define('URL', 'http://livrariaonline.ga/');
-define('PATH_PUBLIC', 'http://livrariaonline.ga/public/');
-define('PATH_VIEW', 'http://livrariaonline.ga/application/views/');
+define('URL', 'http://localhost/livraria_online/');
+define('PATH_PUBLIC', 'http://localhost/livraria_online/public/');
+define('PATH_VIEW', 'http://localhost/livraria_online/application/views/');
 define('LIBS_PATH', '/var/www/html/livraria_online/application/libs/');
 
 

@@ -33,12 +33,13 @@
             </tr>
     <?php
           endforeach;
-      endif;
+      
     ?>
             <tr>
                 <td colspan="3"><p style="float:right">Valor total</p></td>
                 <td colspan="2"><p>R$ <?=$valor_total ?></p></td>
             </tr>
+        <?php endif;?>
 </table>
     <a class="btn btn-primary btn-lg" href="<?=URL?>carrinho/pagar" role="button" style="float: right">Pagar</a>
     <p><a class="btn btn-default btn-lg" href="<?=URL?>" role="button" style="float: right; margin-right: 10px">Continuar Comprando</a></p>
