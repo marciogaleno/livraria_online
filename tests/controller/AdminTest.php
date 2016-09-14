@@ -50,7 +50,7 @@ class AdminTest extends PHPUnit
 	public function testeDeLoginErro()
 	{	
 		$_SERVER['REQUEST_METHOD'] = 'POST';
-		$_POST['senha'] = 'mgv123';
+		$_POST['senha'] = 'mgv12';
 		$_POST['email'] = 'marciovennan@gmail.com';
 
 		ob_start();
