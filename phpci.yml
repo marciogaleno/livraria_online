@@ -10,8 +10,8 @@ build_settings:
 setup:
     shell: 
         - "mv .htaccess.dist .htaccess"
-        - "cd application/config && mv config.php.dist config.php && ls -la"
-        - "cd tests && mv bootstrap.php.dist bootstrap.php && ls -la"
+        - "cd application/config && mv config.php.dist config.php"
+        - "cd tests && mv bootstrap.php.dist bootstrap.php"
 
 
 
