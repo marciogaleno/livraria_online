@@ -9,7 +9,6 @@
  stopOnIncomplete="false"
  stopOnRisky="false"
  verbose="true"
- bootstrap="tests/bootstrap.php"
 >
 
   <testsuites>
