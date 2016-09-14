@@ -36,11 +36,4 @@ foreach (glob($path_controller) as $filename)
     include_once $filename;
 }
 
-$path_models = dirname(__DIR__) . '/application/models/*.php';
-
-foreach (glob($path_controller) as $filename)
-{
-    include_once $filename;
-}
-
 
