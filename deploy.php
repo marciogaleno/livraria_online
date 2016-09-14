@@ -19,5 +19,4 @@ task('update_git', function ($input) {
 
  task('run', array( 
  	'update_git', 
- ))->option('branch', 'b', 'Escolha a branch para deploy', 'master') 
-   ->desc('Deploy para servidor'); 
+ ))->desc('Deploy para servidor'); 
