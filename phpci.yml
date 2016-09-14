@@ -9,7 +9,7 @@ build_settings:
 
 setup:
     shell: 
-        - "cd %BUILD_PATH% && mv .htaccess.dist .htaccess"
+        - "echo '%BUILD_PATH%'"
 
 
 test:
