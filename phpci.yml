@@ -9,7 +9,7 @@ build_settings:
 
 setup:
     shell: 
-        - "echo %PROJECT_TITLE%/"
+        - "cd application/config && ls -al"
 
 
 test:
