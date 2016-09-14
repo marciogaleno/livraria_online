@@ -1,9 +1,17 @@
 build_settings:
+    clone_depth: 1
+    verbose: true
     ignore:
         - "vendor"
         - "tests"
         - "Dockerfile"
         - "Dockerfile.save"
+
+setup:
+    shell: 
+        - "cd %BUILD_PATH% && mv .htaccess.dist .htaccess"
+        - "cd %BUILD_PATH%/appication/config && mv config.php.dist config.php"
+
 
 test:
     php_unit:
@@ -38,3 +46,5 @@ failure:
 success:
     shell: 
         - "cd %BUILD_PATH% && dep deploy producao"
+        - "cd %BUILD_PATH% && mv .htaccess.dist .htaccess"
+        - "cd %BUILD_PATH%/appication/config && mv config.php.dist config.php"
