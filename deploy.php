@@ -13,10 +13,8 @@ server('producao', '191.101.9.10', 22)
 
 
 task('update_git', function ($input) { 
-	$branch = $input->getOption('branch', get('branch', null)); 
-	run("sudo git pull origin $branch"); 
-})->option('branch', 'b', 'Escolha a branch para deploy', 'master') 
-  ->desc('Atualiza os códigos no servidor');
+	run("sudo git pull origin master"); 
+})->desc('Atualiza os códigos no servidor');
 
 
  task('run', array( 
