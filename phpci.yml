@@ -52,4 +52,4 @@ failure:
 
 success:
     shell: 
-        - "cd %BUILD_PATH% && dep run --server=producao -vvv"
+        - "cd %BUILD_PATH% && dep run -vvv"
