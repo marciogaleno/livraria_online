@@ -24,8 +24,6 @@ $path_libs = dirname(__DIR__) . '/application/libs/*.php';
 
 foreach (glob($path_libs) as $filename)
 {
- 	echo $filename;
- 	echo "\n";
     include_once $filename;
 }
 
