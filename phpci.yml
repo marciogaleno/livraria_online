@@ -10,7 +10,6 @@ build_settings:
 setup:
     shell: 
         - "cd %BUILD_PATH% && mv .htaccess.dist .htaccess"
-        - "echo %BUILD_PATH% application/config"
 
 
 test:
@@ -46,5 +45,4 @@ failure:
 success:
     shell: 
         - "cd %BUILD_PATH% && dep deploy producao"
-        - "cd %BUILD_PATH% && mv .htaccess.dist .htaccess"
-        - "cd %BUILD_PATH%/appication/config && mv config.php.dist config.php"
+        - "echo %BUILD_PATH% application/config"
