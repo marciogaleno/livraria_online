@@ -11,3 +11,8 @@ server('producao', '191.101.9.10', 22)
 
 set('repository', 'https://github.com/marciovennan/livraria.git');
 
+task('deploy', [
+    'deploy:prepare',
+    'deploy:update_code',
+]);
+
