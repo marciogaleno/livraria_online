@@ -9,7 +9,7 @@ build_settings:
 
 setup:
     shell: 
-        - "echo PHPCI_BUILD_ROOT_DIR/%BUILD%/"
+        - "echo %PROJECT_TITLE%/"
 
 
 test:
@@ -45,4 +45,3 @@ failure:
 success:
     shell: 
         - "cd %BUILD_PATH% && dep deploy producao"
-        - "echo %BUILD_PATH% application/config"
