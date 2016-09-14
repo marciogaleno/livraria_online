@@ -21,7 +21,7 @@ ini_set("display_errors", 1);
 define('URL', 'http://livrariaonline.ga/');
 define('PATH_PUBLIC', 'http://livrariaonline.ga/public/');
 define('PATH_VIEW', 'http://livrariaonline.ga/application/views/');
-define('LIBS_PATH', '/var/www/html/livraria_online/application/libs/');
+define('LIBS_PATH', _dirname(__DIR__) . '/libs/');
 
 
 /**
