@@ -9,7 +9,7 @@ build_settings:
 
 setup:
     shell: 
-        - "echo '%BUILD_PATH%'"
+        - "echo PHPCI_BUILD_ROOT_DIR/%BUILD%/"
 
 
 test:
