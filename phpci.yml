@@ -11,7 +11,7 @@ setup:
     shell: 
         - "mv .htaccess.dist .htaccess"
         - "cd application/config && mv config.php.dist config.php && ls -la"
-        - "cd ../../ && ls -la"
+        - "cd ../ && ls -la"
 
 
 test:
