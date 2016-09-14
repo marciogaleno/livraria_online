@@ -7,7 +7,7 @@
  */
 
 /**
- * Description of compras
+ * Description of compras |
  *
  * @author marcio
  */
