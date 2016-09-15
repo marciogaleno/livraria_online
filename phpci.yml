@@ -52,4 +52,4 @@ failure:
 
 success:
     shell: 
-        - "cd %BUILD_PATH% && dep run -vvv"
+        - "cd %BUILD_PATH% && dep executa_implantacao produca"
