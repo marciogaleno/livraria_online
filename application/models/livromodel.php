@@ -104,7 +104,9 @@ class LivroModel
             $query->bindValue(':imagem', $livro['imagem']);
         }
              //var_dump($_FILES['imagem']); die;
-            $upload = upload::factory('livraria_online' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'img');
+            $upload = upload::factory(
+                DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'img',
+                $_SERVER['DOCUMENT_ROOT']);
             $upload->file($_FILES['imagem']);
             $upload->set_filename($_FILES['imagem']['name']);
 
