@@ -110,7 +110,7 @@ class LivroModel
         }
              //var_dump($_FILES['imagem']); die;
             $upload = upload::factory(
-                'public' . DIRECTORY_SEPARATOR . 'img',
+                DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'img',
                 $_SERVER['DOCUMENT_ROOT']);
 
             //localhost 
