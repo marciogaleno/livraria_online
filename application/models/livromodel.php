@@ -45,7 +45,7 @@ class LivroModel
         if (!empty($_FILES['imagem']['name']) && $_FILES['imagem']['name'] != '') {
             $livro['imagem'] =  $_FILES['imagem']['name'];
             //var_dump($_FILES['imagem']); die;
-            $upload = upload::factory( 'public' . DIRECTORY_SEPARATOR . 'img');
+            $upload = upload::factory( DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'img');
 
             //local host 
 
