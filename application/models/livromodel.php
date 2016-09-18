@@ -45,7 +45,7 @@ class LivroModel
         if (!empty($_FILES['imagem']['name']) && $_FILES['imagem']['name'] != '') {
             $livro['imagem'] =  $_FILES['imagem']['name'];
             //var_dump($_FILES['imagem']); die;
-            $upload = upload::factory('livraria' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'img');
+            $upload = upload::factory('livraria_online' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'img');
             $upload->file($_FILES['imagem']);
             $upload->set_filename($_FILES['imagem']['name']);
 
@@ -104,7 +104,7 @@ class LivroModel
             $query->bindValue(':imagem', $livro['imagem']);
         }
              //var_dump($_FILES['imagem']); die;
-            $upload = upload::factory('livraria' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'img');
+            $upload = upload::factory('livraria_online' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'img');
             $upload->file($_FILES['imagem']);
             $upload->set_filename($_FILES['imagem']['name']);
 
