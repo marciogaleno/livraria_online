@@ -64,7 +64,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href=""  class="dropdown-toggle" data-toggle="dropdown">Alugueis<b class="caret"></b></a>
+                        <a href=""  class="dropdown-toggle" data-toggle="dropdown">Aluguéis<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         <li>
                             <a href="<?=URL?>aluguel/indexAdmin">Listar</a>
