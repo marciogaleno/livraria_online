@@ -30,13 +30,13 @@
                     <hr>
                     <?php if (isset($livros)): ?>
                     <?php foreach ($livros as $livro): ?>
-                    <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="col-sm-3 col-lg-3 col-md-3">
                         <div class="thumbnail">
-                            <img src="<?=URL?>public/img/<?=$livro['imagem']?>" alt="" style="width: 200px; min-height: 300px">  
+                            <img src="<?=URL?>public/img/<?=$livro['imagem']?>" alt="" style="width: 100px; min-height: 150px">  
                             <div class="caption">
-                                <h4 class="pull-right">$<?=$livro['PrecoVenda']?></h4>
                                 <h4><a href="<?=URL?>livro/view/<?=$livro['idLivro']?>"><?=$livro['Nome']?></a>
                                 </h4>
+                                <h4 class="pull-right">$<?=$livro['PrecoVenda']?></h4>
                                 <p><?=$livro['descricao']?>
                             </div>
                             <div class="ratings">
