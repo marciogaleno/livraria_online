@@ -14,17 +14,19 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
+
 $dominio = $_SERVER['SERVER_NAME'];
 
 
 /**
- * Configuration for: Project URL
+ * Configuration for: Project URL/
  * Put your URL here, for local development "127.0.0.1" or "localhost" (plus sub-folder) is fine
  */
-define('URL', 'http://' . $dominio);
-define('PATH_PUBLIC', 'http://livrariaonline.ga/public/');
-define('PATH_VIEW', 'http://livrariaonline.ga/application/views/');
+define('URL', 'http://' . $dominio . '/');
+define('PATH_PUBLIC', 'http://' . $dominio . '/public/');
+define('PATH_VIEW', 'http://' . $dominio . '/application/views/');
 define('LIBS_PATH', dirname(__DIR__) . '/libs/');
+
 
 
 /**
