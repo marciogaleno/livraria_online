@@ -114,7 +114,7 @@ class Carrinho extends Controller
        }
           $this->setflash('Erro ao adicionar ítem', array('class' => 'alert alert-error'));
           header('location: ' . URL . 'carrinho/checkout');
-          return;
+          return $livros;
     }
     
     public function confirmacaoPagamento(){

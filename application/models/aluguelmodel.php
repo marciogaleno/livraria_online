@@ -136,14 +136,14 @@ class AluguelModel
    
    function aplicaMulta($aluguel_id, $data_prevista_entrega, $data_devolucao)
    {  
+       
        // Caso não tenha devolvido ainda, a data para o cálculo será da data prevista de entrega a data atual
        if (empty($data_devolucao)) {
-          $dias = $this->calculaDiferenca($data_prevista_entrega, date('y-m-d'));
+          $multa = $this->calculaMulta($data_prevista_entrega, date('y-m-d'));
        } else { // caso tenha devoldido, o cálculo será da data prevista de entrega a data de devolucao
-          $dias = $this->calculaDiferenca($data_prevista_entrega, $data_devolucao);
+          $multa = $this->calculaMulta($data_prevista_entrega, $data_devolucao);
        }
-              //echo $dias;
-       $multa = 1.0 * $dias;
+    
        
        //echo $multa; die;
        
@@ -162,11 +162,17 @@ class AluguelModel
         return false;
    }
    
-  private function calculaDiferenca($data_inicial, $data_final)
+  private function calculaMulta(string $data_prevista_entrega, String $data_devolucao)
   {
-        $diferenca = strtotime($data_final) - strtotime($data_inicial);
-        $dias = floor($diferenca / (60 * 60 * 24));
-        return $dias;
+        $multa = 0.0;
+        $valor_multa_por_dia = 1.0;
+
+        $diferenca = strtotime($data_prevista_entrega) - strtotime($data_devolucao);
+        $dias = $diferenca / (60 * 60 * 24);
+
+        $multa = $valor_multa_por_dia * $dias;
+
+        return $multa;
   }
 
   function add($reserva_id, $cliente_id, $livro_id, $preco_aluguel)

@@ -122,15 +122,15 @@ class Aluguel extends Controller
         }          
     }
     
-    function add($reserva_id, $cliente_id, $livro_id, $preco_aluguel)
-    {
-         $AluguelModel = $this->loadModel('AluguelModel');
-         if ($AluguelModel->add($reserva_id, $cliente_id, $livro_id, $preco_aluguel)){
-           $this->setflash('Livro renovado com sucesso', array('class' => 'alert alert-success'));
-           header('Location: '. URL . 'reservas'. '/indexAdmin');
-           exit;   
-         }
-    }
+    // function add($reserva_id, $cliente_id, $livro_id, $preco_aluguel)
+    // {
+    //      $AluguelModel = $this->loadModel('AluguelModel');
+    //      if ($AluguelModel->add($reserva_id, $cliente_id, $livro_id, $preco_aluguel)){
+    //        $this->setflash('Livro renovado com sucesso', array('class' => 'alert alert-success'));
+    //        header('Location: '. URL . 'reservas'. '/indexAdmin');
+    //        exit;   
+    //      }
+    // }
     
  
 }

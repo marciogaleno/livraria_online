@@ -9,6 +9,12 @@ server('producao', '191.101.9.10', 22)
 	->stage('producao')
     ->env('deploy_path', '/var/www/html/livraria_online');
 
+server('homologacao', '191.101.9.10', 22)
+    ->user('root')
+    ->password('Nf(fv4{Ms75Av]b')
+    ->stage('producao')
+    ->env('deploy_path', '/var/www/html/livraria_online_homologacao');
+
 set('repository', 'https://github.com/marciovennan/livraria.git');
 
 set('keep_releases', 3);
