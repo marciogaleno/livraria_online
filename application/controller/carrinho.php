@@ -64,19 +64,16 @@ class Carrinho extends Controller
                     setcookie("livros", '', time()+3600, '/');
                     $this->setflash('Item excluído com sucesso', array('class' => 'alert alert-success'));
                     header('location: ' . URL . 'carrinho/checkout');
-                    exit;
                 }else{
                     $livros = serialize($livros);
                     setcookie("livros", $livros, time()+3600, '/');
                     $this->setflash('Ìtem excluído com sucesso!', array('class' => 'alert alert-success'));
                     header('location: ' . URL . 'carrinho/checkout');
-                    exit;
                 }
             }
         }
 
         header('location: ' . URL . 'carrinho/checkout');
-        exit;
     }
     /**
      * Excluir item que está no array no coockie de livros
@@ -110,11 +107,11 @@ class Carrinho extends Controller
           
           $this->setflash('Item Adicionado com sucesso', array('class' => 'alert alert-success'));
           header('location: ' . URL . 'carrinho/checkout');
-          return;
+          return $livros;
        }
           $this->setflash('Erro ao adicionar ítem', array('class' => 'alert alert-error'));
           header('location: ' . URL . 'carrinho/checkout');
-          return $livros;
+          return;
     }
     
     public function confirmacaoPagamento(){
