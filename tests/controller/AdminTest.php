@@ -16,7 +16,6 @@ class AdminTest extends PHPUnit
 		@session_start();
 		parent::setup();
 
-
 		$this->admin = new Admin();
 
 	}
@@ -31,6 +30,7 @@ class AdminTest extends PHPUnit
 		$_POST['senha'] = 'mgv123';
 		$_POST['email'] = 'marciovennan@gmail.com';
 
+		
 		ob_start();
 
  		$this->admin->login();
