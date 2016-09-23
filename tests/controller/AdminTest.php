@@ -16,6 +16,7 @@ class AdminTest extends PHPUnit
 		@session_start();
 		parent::setup();
 
+
 		$this->admin = new Admin();
 
 	}

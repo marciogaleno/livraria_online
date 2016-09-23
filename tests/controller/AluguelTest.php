@@ -17,11 +17,7 @@ class AluguelTest extends PHPUnit
 		@session_start();
 		parent::setup();
 
-		$this->conexao = new PDO('mysql:host=localhost', 'root', '123456');
-
-		$sql = file_get_contents(dirname(__DIR__) . '/livraria_teste.sql');
-
-		$this->conexao->exec($sql);
+		$this->conexao = new PDO('mysql:host=localhost;dbname=livraria_teste', 'root', '123456');
 
 		$this->aluguel = new Aluguel();
 
@@ -34,6 +30,7 @@ class AluguelTest extends PHPUnit
 	*/
 	public function testeIndex()
 	{	
+		ob_start();
 		$_SESSION['cliente_id'] = 10;
 		$_SESSION['usuario_id'] = 2;
 		$_SESSION['usuario_nome'] = 'Marcio';
@@ -41,6 +38,7 @@ class AluguelTest extends PHPUnit
 
  		$this->aluguel->index();
 
+ 		ob_end_clean();
  		$this->assertTrue(true);
 		
 	}
@@ -52,6 +50,7 @@ class AluguelTest extends PHPUnit
 	*/
 	public function testeIndexAdmin()
 	{	
+		ob_start();
 		$_SESSION['cliente_id'] = 10;
 		$_SESSION['usuario_id'] = 2;
 		$_SESSION['usuario_nome'] = 'Marcio';
@@ -59,6 +58,10 @@ class AluguelTest extends PHPUnit
 		$_SESSION['tipo_user'] = 'admin';
 
  		$this->aluguel->indexAdmin();
+
+ 		ob_end_clean();
+
+ 		// $file = file_get_contents()
 
  		$this->assertTrue(true);
 		
@@ -71,7 +74,7 @@ class AluguelTest extends PHPUnit
 	*/
 	public function testeRenovarGet()
 	{	
-		
+		ob_start();
 		$_SERVER['REQUEST_METHOD'] = 'GET';
 
 		$aluguel = $this->conexao->query('SELECT * FROM Aluga ORDER BY idAluga DESC LIMIT 1');
@@ -84,6 +87,8 @@ class AluguelTest extends PHPUnit
  		
  		$this->aluguel->renovar($id);
 
+ 		ob_end_clean();
+ 		
  		$this->assertTrue(true);
 		
 	}
@@ -95,6 +100,8 @@ class AluguelTest extends PHPUnit
 	public function testeRenovarPost()
 	{	
 		
+		ob_start();
+
 		$_SERVER['REQUEST_METHOD'] = 'POST';
 
 		$aluguel = $this->conexao->query('SELECT * FROM Aluga ORDER BY idAluga DESC LIMIT 1');
@@ -108,6 +115,8 @@ class AluguelTest extends PHPUnit
  		
  		$this->aluguel->renovar($id);
 
+ 		ob_end_clean();
+
  		$this->assertTrue(true);
 		
 	}
@@ -120,6 +129,7 @@ class AluguelTest extends PHPUnit
 	public function testeRenovarAdminGet()
 	{	
 		
+		ob_start();
 		$_SESSION['usuario_logado'] = true;
 		$_SESSION['tipo_user'] = 'admin';
 		
@@ -136,6 +146,8 @@ class AluguelTest extends PHPUnit
  		
  		$this->aluguel->renovarAdmin($id);
 
+ 		ob_end_clean();
+
  		$this->assertTrue(true);
 		
 	}
@@ -148,6 +160,7 @@ class AluguelTest extends PHPUnit
 	public function testeDevolucaoLivroUsuarioAdminMetodoGet()
 	{	
 		
+		ob_start();
 		$_SESSION['usuario_logado'] = true;
 		$_SESSION['tipo_user'] = 'admin';
 		
@@ -163,6 +176,8 @@ class AluguelTest extends PHPUnit
  		};
  		
  		$this->aluguel->devolverAdmin($id);
+
+ 		ob_end_clean();
 
  		$this->assertTrue(true);
 

@@ -17,20 +17,10 @@ class CarrinhoTest extends PHPUnit
 		@session_start();
 		parent::setup();
 
-		$this->conexao = new PDO('mysql:host=localhost', 'root', '123456');
-
-		$sql = file_get_contents(dirname(__DIR__) . '/livraria_teste.sql');
-
-		$this->conexao->exec($sql);
+		$this->conexao = new PDO('mysql:host=localhost;dbname=livraria_teste', 'root', '123456');
 
 		$this->carrinho = new Carrinho();
 
-	}
-
-
-	public function tearDown() 
-	{
-		$this->conexao->exec("DROP DATABASE livraria_online");
 	}
 
 
