@@ -25,10 +25,9 @@ test:
 
     php_loc:
     
-    # lint:
-    #     directories:
-    #       - "application/"
-    #       - "tests/"
+    lint:
+        directories:
+          - "application"
 
     php_code_sniffer:
         standard: "PSR2"
