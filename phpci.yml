@@ -27,7 +27,7 @@ test:
     
     lint:
         directories:
-          - "application"
+          - "application/controller"
 
     php_code_sniffer:
         standard: "PSR2"
