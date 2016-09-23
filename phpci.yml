@@ -26,9 +26,7 @@ test:
     php_loc:
     
     lint:
-        directories:
-          - "application"
-        recursive: true
+        directory: application/controller"
 
     php_code_sniffer:
         standard: "PSR2"
