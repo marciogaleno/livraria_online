@@ -25,21 +25,21 @@ test:
 
     php_loc:
 
-    php_code_sniffer:
-        standard: "PSR2"
-        allowed_errors: -1
-        allowed_warnings: -1
-        ignore:
-            - "public"
-            - "tests"
-            - "vendor"
-            - "Dockerfile"
-            - "Dockerfile.save"
-            - "deployer.phar"
-            - "docker-compose.yml"
-            - "phpci.yml.dist"
-            - "phpci.yml.save"
-            - "phpunit.xml"
+    # php_code_sniffer:
+    #     standard: "PSR2"
+    #     allowed_errors: -1
+    #     allowed_warnings: -1
+    #     ignore:
+    #         - "public"
+    #         - "tests"
+    #         - "vendor"
+    #         - "Dockerfile"
+    #         - "Dockerfile.save"
+    #         - "deployer.phar"
+    #         - "docker-compose.yml"
+    #         - "phpci.yml.dist"
+    #         - "phpci.yml.save"
+    #         - "phpunit.xml"
     
     # php_cpd:
     #     allow_failures: true
@@ -60,8 +60,8 @@ test:
         zero_config: true
             
 failure:
-    email:
-        committer: true
+    # email:
+    #     committer: true
 
 success:
     shell: 
