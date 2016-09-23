@@ -23,6 +23,50 @@ class CarrinhoTest extends PHPUnit
 
 	}
 
+	/**
+	* @test
+	* @runInSeparateProcess
+	*/
+	public function testePagamentoSucesso()
+	{
+
+		$_SESSION['usuario_logado'] = true;
+		$_SESSION['tipo_user'] = 'admin';
+		$_SESSION['cliente_id'] = 10;
+		$_SESSION['usuario_id'] = 2;
+
+		$livro = $this->conexao->query('SELECT * FROM livro ORDER BY idLivro DESC LIMIT 1');
+
+		$livro_id;
+		$livro_nome;
+		$livro_preco;
+		$livro_quantidade = 1;
+
+
+ 		foreach ($livro as $key => $value) {
+ 			$livro_id = $value['idLivro'];
+ 			$livro_nome = $value['Nome'];
+ 			$livro_preco = $value['PrecoVenda'];
+
+ 		};
+
+       $_COOKIE['livros'][$livro_id] = array('nome_livro' => $livro_nome, 'preco_livro' => $livro_preco, 'quant' => $livro_quantidade, 'operacao' => 1, 'ValordaCompra' => $livro_preco, 'Rest' => null);
+
+       $_COOKIE['livros'] = serialize($_COOKIE['livros']);
+ 		
+
+ 		ob_start();
+
+ 		$this->carrinho->pagar();
+
+ 		$headers_list = xdebug_get_headers();
+ 		header_remove();
+
+ 		ob_end_clean();
+
+  		$this->assertContains('location: ' . URL . 'carrinho/confirmacaoPagamento', $headers_list);
+	}
+
 
 	/**
 	* Teste para adicionar item no carrinho para operação de compra
@@ -194,5 +238,21 @@ class CarrinhoTest extends PHPUnit
  		$this->assertContains('location: ' . URL . 'carrinho/checkout', $headers_list);
 
 		
+	}
+
+	/**
+	* @test
+	* @runInSeparateProcess
+	*/
+
+	public function testeConfirmacaoPagamento()
+	{
+		ob_start();
+
+		$this->carrinho->confirmacaoPagamento();
+		
+		ob_end_clean();
+
+		$this->assertTrue(true);
 	}
 }
