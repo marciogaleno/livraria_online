@@ -28,6 +28,7 @@ test:
     lint:
         directories:
           - "application/controller"
+        recursive: false
 
     php_code_sniffer:
         standard: "PSR2"
