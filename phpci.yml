@@ -41,12 +41,12 @@ test:
             - "phpci.yml.save"
             - "phpunit.xml"
     
-    php_cpd:
-        allow_failures: true
-        allowed_errors: -1
+    # php_cpd:
+    #     allow_failures: true
+    #     allowed_errors: -1
 
     php_mess_detector:
-        path: 'app'
+        path: 'application'
         ignore:
           - 'vendor'
         allowed_warnings: -1
