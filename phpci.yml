@@ -24,9 +24,6 @@ test:
         coverage: "--coverage-html"
 
     php_loc:
-    
-    lint:
-        directory: "application"
 
     php_code_sniffer:
         standard: "PSR2"
@@ -47,6 +44,21 @@ test:
     php_cpd:
         allow_failures: true
         allowed_errors: -1
+
+    php_mess_detector:
+        path: 'app'
+        ignore:
+          - 'vendor'
+        allowed_warnings: -1
+        rules:
+          - "cleancode"
+          - "controversial"
+          - "codesize"
+          - "design"
+          - "naming"
+          - "unusedcode"
+          - "somedir/customruleset.xml"
+        zero_config: true
             
 failure:
     email:
