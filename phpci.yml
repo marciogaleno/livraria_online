@@ -17,6 +17,8 @@ setup:
 
 test:
     php_unit:
+        allowed_errors: -1
+        allowed_warnings: -1       
         config:
             - "phpunit.xml"
         directory:
