@@ -51,7 +51,7 @@ test:
 
     codeception:
         config: "codeception.yml"
-        path: "tests/"
+        path: "tests/output/"
         args: "report.xml --no-ansi --coverage-html"
 
 failure:
