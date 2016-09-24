@@ -17,7 +17,6 @@ setup:
 
 test:
     php_unit:
-        allow_failures: true
         config:
             - "phpunit.xml"
         directory:
@@ -54,6 +53,7 @@ test:
     php_mess_detector:
         path: "application/models/"
         allowed_warnings: -1
+        allowed_erros: -1
         zero_config: true
 
     codeception:
