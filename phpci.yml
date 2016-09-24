@@ -47,19 +47,8 @@ test:
         ignore:
 
     php_mess_detector:
-        path: 'application'
-        ignore:
-          - 'vendor'
-        allowed_warnings: -1
-        rules:
-          - "cleancode"
-          - "controversial"
-          - "codesize"
-          - "design"
-          - "naming"
-          - "unusedcode"
-        zero_config: true
-            
+        allow_failures: true
+
 failure:
     # email:
     #     committer: true
