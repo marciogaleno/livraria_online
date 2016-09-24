@@ -27,7 +27,10 @@ test:
     php_loc:
 
     lint:
-      directory: "application/models/"
+      directories: 
+        - "application/models/"
+        - "application/tests/unit/controller"
+
       recursive: false
 
     php_code_sniffer:

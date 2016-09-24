@@ -2,7 +2,7 @@
 
 require dirname(__DIR__, 2)  . "/bootstrap.php";
 
-use PHPUnit_Framework_TestCase as PHPUnit;
+Use PHPUnit_Framework_TestCase as PHPUnit;
 
 
 class AdminTest extends PHPUnit
