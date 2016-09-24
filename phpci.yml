@@ -17,6 +17,7 @@ setup:
 
 test:
     php_unit:
+        allow_failures: true
         config:
             - "phpunit.xml"
         directory:
