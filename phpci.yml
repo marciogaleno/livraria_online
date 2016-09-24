@@ -31,7 +31,6 @@ test:
         allowed_errors: -1
         allowed_warnings: -1
         ignore:
-            - "aluguelmodel.php"
             - "carrinhomodel.php"
             - "categoriamodel.php"
             - "clientemodel.php"
