@@ -52,6 +52,7 @@ test:
     codeception:
         config: "codeception.yml"
         path: "tests/"
+        args: "acceptance --steps"
 
 failure:
     # email:
