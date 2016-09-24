@@ -34,7 +34,6 @@ class Admin extends Controller
             if ($login_successful) {
                 // if YES, then move user to dashboard/index (btw this is a browser-redirection, not a rendered view!)
                 header('location: ' . URL . 'admin/index');
-                DIE("teste");
             } else {
                 // if NO, then move user to login/index (login form) again
                 header('location: ' . URL . 'admin/login');
