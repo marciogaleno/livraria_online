@@ -25,21 +25,22 @@ test:
 
     php_loc:
 
-    # php_code_sniffer:
-    #     standard: "PSR2"
-    #     allowed_errors: -1
-    #     allowed_warnings: -1
-    #     ignore:
-    #         - "public"
-    #         - "tests"
-    #         - "vendor"
-    #         - "Dockerfile"
-    #         - "Dockerfile.save"
-    #         - "deployer.phar"
-    #         - "docker-compose.yml"
-    #         - "phpci.yml.dist"
-    #         - "phpci.yml.save"
-    #         - "phpunit.xml"
+    php_code_sniffer:
+        path: "application/models",
+        standard: "PSR2"
+        allowed_errors: -1
+        allowed_warnings: -1
+        ignore:
+            - "public"
+            - "tests"
+            - "vendor"
+            - "Dockerfile"
+            - "Dockerfile.save"
+            - "deployer.phar"
+            - "docker-compose.yml"
+            - "phpci.yml.dist"
+            - "phpci.yml.save"
+            - "phpunit.xml"
     
     php_cpd:
         standard: "PSR2"
@@ -48,6 +49,7 @@ test:
 
     php_mess_detector:
         path: 'application/models'
+        allow_failures: true
 
     codeception:
         allow_failures: true
@@ -58,8 +60,6 @@ test:
 failure:
     # email:
     #     committer: true
-    shell:
-        - "cd %BUILD_PATH% && cp -r output /tmp/"
 
 success:
     shell: 
