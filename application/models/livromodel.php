@@ -54,8 +54,6 @@ class LivroModel
             $upload->file($_FILES['imagem']);
             $upload->set_filename($_FILES['imagem']['name']);
 
-            $results = $upload->upload();
-
 
         }   
         

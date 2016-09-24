@@ -62,9 +62,9 @@ class CategoriaModel
         return false;
     }
     
-    public function get($id)
+    public function get($categoria_id)
     {
-        $sql = "SELECT * FROM categoria as l WHERE l.idCategoria={$id}";
+        $sql = "SELECT * FROM categoria as l WHERE l.idCategoria={$categoria_id}";
         $query = $this->db->prepare($sql);
              //var_dump($livros); die;
         $query->execute();  
