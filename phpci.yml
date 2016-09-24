@@ -50,6 +50,7 @@ test:
         allow_failures: true
 
     codeception:
+        allow_failures: true
         config: "codeception.yml"
         path: "tests/output/"
         args: "report.xml --no-ansi --coverage-html --steps"
