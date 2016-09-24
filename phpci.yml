@@ -31,16 +31,14 @@ test:
         allowed_errors: -1
         allowed_warnings: -1
         ignore:
-            - "public"
-            - "tests"
-            - "vendor"
-            - "Dockerfile"
-            - "Dockerfile.save"
-            - "deployer.phar"
-            - "docker-compose.yml"
-            - "phpci.yml.dist"
-            - "phpci.yml.save"
-            - "phpunit.xml"
+            - "aluguel.php"
+            - "carrinho.php"
+            - "categorias.php"
+            - "cliente.php"
+            - "compras.php"
+            - "conta.php"
+            - "livro.php"
+            - "login.php"
     
     php_cpd:
         standard: "PSR2"
