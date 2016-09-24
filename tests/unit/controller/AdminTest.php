@@ -40,7 +40,7 @@ class AdminTest extends PHPUnit
 
  		ob_end_clean();
 
- 		$this->assertContains('location: ' . URL . 'admin/index', $headers_list);
+ 		$this->assertContains('location: ' . URL . 'admin/index2', $headers_list);
 		
 	}
 

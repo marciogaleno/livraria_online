@@ -1,15 +1,15 @@
 <?php
-
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 class AluguelModel
 {
     private $db;
     
-    function __construct($db) 
+    public function __construct($db)
     {
         try {
             $this->db = $db;
@@ -52,14 +52,14 @@ class AluguelModel
     {
         $sql = "UPDATE Aluga SET
                DataPrevistaEntrega = :DataPrevistaEntrega
-               WHERE idAluga = :idAluga";     
-        
-        $query = $this->db->prepare($sql); 
+               WHERE idAluga = :idAluga";
+
+        $query = $this->db->prepare($sql);
 
         $query->bindValue(':DataPrevistaEntrega', date('y/m/d', strtotime("+13 days")));
         $query->bindValue(':idAluga', $id_aluga);
         
-        if ($query->execute()){
+        if ($query->execute()) {
             return true;
         }
         
@@ -71,14 +71,14 @@ class AluguelModel
 
         $sql = "UPDATE Aluga SET
                DataDevolucao = :DataDevolucao
-               WHERE idAluga = :idAluga";     
+               WHERE idAluga = :idAluga";
         
-        $query = $this->db->prepare($sql); 
+        $query = $this->db->prepare($sql);
 
         $query->bindValue(':DataDevolucao', date('Y/m/d'));
         $query->bindValue(':idAluga', $id_aluga);
         
-        if ($query->execute()){
+        if ($query->execute()) {
             return true;
         }
         
@@ -93,7 +93,7 @@ class AluguelModel
                 
         $query = $this->db->prepare($sql);
              //var_dump($livros); die;
-        $query->execute();  
+        $query->execute();
         
         $aluguel = $query->fetchAll();
         

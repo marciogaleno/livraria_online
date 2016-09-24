@@ -98,7 +98,7 @@ class CarrinhoTest extends PHPUnit
  		
  		$this->carrinho->adicionarIntem($livro_id, $livro_nome, $livro_preco, $livro_quantidade, 1, null);
 
- 		$this->assertTrue(true);
+ 		$this->assertTrue(false);
 
 		// $conn = $this->getConnection()->getConnection();
 
