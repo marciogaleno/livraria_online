@@ -39,7 +39,7 @@ class AluguelTest extends PHPUnit
  		$this->aluguel->index();
 
  		ob_end_clean();
- 		$this->assertTrue(true);
+ 		$this->assertTrue(false);
 		
 	}
 
@@ -63,7 +63,7 @@ class AluguelTest extends PHPUnit
 
  		// $file = file_get_contents()
 
- 		$this->assertTrue(true);
+ 		$this->assertTrue(fase);
 		
 	}
 
@@ -89,7 +89,7 @@ class AluguelTest extends PHPUnit
 
  		ob_end_clean();
  		
- 		$this->assertTrue(true);
+ 		$this->assertTrue(false);
 		
 	}
 
@@ -117,7 +117,7 @@ class AluguelTest extends PHPUnit
 
  		ob_end_clean();
 
- 		$this->assertTrue(true);
+ 		$this->assertTrue(false);
 		
 	}
 
@@ -148,7 +148,7 @@ class AluguelTest extends PHPUnit
 
  		ob_end_clean();
 
- 		$this->assertTrue(true);
+ 		$this->assertTrue(false);
 		
 	}
 
@@ -179,7 +179,7 @@ class AluguelTest extends PHPUnit
 
  		ob_end_clean();
 
- 		$this->assertTrue(true);
+ 		$this->assertTrue(false);
 
 		// $conn = $this->getConnection()->getConnection();
 
