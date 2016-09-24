@@ -52,8 +52,7 @@ test:
         ignore:
 
     php_mess_detector:
-        path: "application/models/"
-        allowed_warnings: -1
+        path: "application/"
 
     codeception:
         allow_failures: true
