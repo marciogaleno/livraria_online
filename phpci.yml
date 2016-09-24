@@ -31,14 +31,13 @@ test:
         allowed_errors: -1
         allowed_warnings: -1
         ignore:
-            - "aluguel.php"
-            - "carrinho.php"
-            - "categorias.php"
-            - "cliente.php"
-            - "compras.php"
-            - "conta.php"
-            - "livro.php"
-            - "login.php"
+            - "aluguelmodel.php"
+            - "carrinhomodel.php"
+            - "categoriamodel.php"
+            - "clientemodel.php"
+            - "compramodel.php"
+            - "livromodel.php"
+            - "loginmodel.php"
     
     php_cpd:
         standard: "PSR2"
