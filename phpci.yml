@@ -26,7 +26,7 @@ test:
     php_loc:
 
     php_code_sniffer:
-        path: "application/models",
+        path: "application/models"
         standard: "PSR2"
         allowed_errors: -1
         allowed_warnings: -1
