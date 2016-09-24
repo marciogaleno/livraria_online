@@ -13,7 +13,7 @@
 
   <testsuites>
     <testsuite name="controller">
-      <directory>tests/controller</directory>
+      <directory>tests/unit/controller</directory>
     </testsuite>
   </testsuites>
 

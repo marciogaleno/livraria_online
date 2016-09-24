@@ -49,6 +49,10 @@ test:
     php_mess_detector:
         allow_failures: true
 
+    codeception:
+        config: "codeception.yml"
+        path: "tests/"
+
 failure:
     # email:
     #     committer: true
