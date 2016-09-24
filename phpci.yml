@@ -30,7 +30,6 @@ test:
       directories: 
         - "application/models/"
         - "application/controller/"
-        - "application/tests/unit/controller/"
 
       recursive: false
 
