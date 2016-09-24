@@ -8,5 +8,5 @@ class_name: AcceptanceTester
 modules:
     enabled:
         - PhpBrowser:
-            url: 'http://local.livrariaonline.ga'
+            url: 'http://homologacao.livrariaonline.ga'
         - \Helper\Acceptance
