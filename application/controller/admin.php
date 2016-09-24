@@ -33,10 +33,11 @@ class Admin extends Controller
             // check login status
             if ($login_successful) {
                 // if YES, then move user to dashboard/index (btw this is a browser-redirection, not a rendered view!)
-                Header('location: ' . URL . 'admin/index');
+                header('location: ' . URL . 'admin/index');
+                DIE("teste");
             } else {
                 // if NO, then move user to login/index (login form) again
-                Header('location: ' . URL . 'admin/login');
+                header('location: ' . URL . 'admin/login');
             }
         }
         require 'application/views/_templates/header-login.php';
