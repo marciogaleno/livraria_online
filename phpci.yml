@@ -42,8 +42,9 @@ test:
     #         - "phpunit.xml"
     
     php_cpd:
-        allow_failures: true
-        allowed_errors: -1
+        standard: "PSR2"
+        path: "application"
+        ignore:
 
     php_mess_detector:
         path: 'application'
