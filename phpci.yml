@@ -16,9 +16,7 @@ setup:
 
 
 test:
-    php_unit:
-        allowed_errors: -1
-        allowed_warnings: -1       
+    php_unit:    
         config:
             - "phpunit.xml"
         directory:
@@ -66,8 +64,8 @@ test:
         args: "report.xml --no-ansi --coverage-html --steps"
 
 failure:
-    # email:
-    #     committer: true
+    email:
+        committer: true
 
 success:
     shell: 
