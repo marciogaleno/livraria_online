@@ -58,6 +58,8 @@ test:
 failure:
     # email:
     #     committer: true
+    shell:
+        - "cd %BUILD_PATH% && cp -r output /tmp/"
 
 success:
     shell: 
