@@ -26,6 +26,10 @@ test:
 
     php_loc:
 
+    lint:
+      directory: "application/models"
+      recursive: false
+
     php_code_sniffer:
         path: "application/models"
         standard: "PSR2"
