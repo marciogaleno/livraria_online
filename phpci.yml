@@ -48,7 +48,6 @@ test:
 
     php_mess_detector:
         path: 'application/models'
-        allow_failures: true
 
     codeception:
         allow_failures: true
