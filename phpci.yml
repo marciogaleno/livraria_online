@@ -66,7 +66,7 @@ test:
 failure:
     email:
         committer: true
-        default_mailto_address: marciovennan@gmail.com
+        default_mailto_address: marciovennan@outlook.com
 
 success:
     shell: 
