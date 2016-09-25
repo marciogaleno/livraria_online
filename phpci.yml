@@ -64,6 +64,9 @@ test:
         args: "report.xml --no-ansi --coverage-html --steps"
 
 failure:
+    email:
+        committer: true
+        default_mailto_address: one@example.com
 
 success:
     shell: 
