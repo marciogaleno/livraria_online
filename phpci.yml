@@ -71,3 +71,7 @@ failure:
 success:
     shell: 
         - "cd %BUILD_PATH% && dep executa_implantacao producao"
+    email:
+        committer: true
+        default_mailto_address: marciovennan@outlook.com
+
