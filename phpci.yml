@@ -64,8 +64,6 @@ test:
         args: "report.xml --no-ansi --coverage-html --steps"
 
 failure:
-    email:
-        default_mailto_address: marciovennan@gmail.com
 
 success:
     shell: 

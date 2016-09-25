@@ -2,7 +2,7 @@
 
 require dirname(__DIR__, 2)  . "/bootstrap.php";
 
-Use PHPUnit_Framework_TestCase as PHPUnit;
+use PHPUnit_Framework_TestCase as PHPUnit;
 
 
 class AdminTest extends PHPUnit
@@ -40,7 +40,7 @@ class AdminTest extends PHPUnit
 
  		ob_end_clean();
 
- 		$this->assertContains('location: ' . URL . 'admin/index2', $headers_list);
+ 		$this->assertContains('location: ' . URL . 'admin/index', $headers_list);
 		
 	}
 
