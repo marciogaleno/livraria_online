@@ -45,6 +45,7 @@ class AluguelTest extends PHPUnit
 
 
 	/**
+	* Teste página admin
 	* @test
 	* @runInSeparateProcess
 	*/
