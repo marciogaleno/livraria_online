@@ -60,6 +60,7 @@ test:
     php_docblock_checker:
         allowed_warnings: 0
         skip_classes: true
+        skip_methods: true
 
     codeception:
         allow_failures: true
