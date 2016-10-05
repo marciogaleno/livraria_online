@@ -47,7 +47,8 @@ test:
         zero_config: true
 
     php_docblock_checker:
-        allowed_warnings: 0
+        allowed_warnings: -1
+        allowed_erros: -1
         skip_classes: true
 
     codeception:
