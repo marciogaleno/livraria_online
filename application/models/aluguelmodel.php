@@ -166,34 +166,34 @@ class AluguelModel
 
 
 
- /**
-   * Método que calcula a multa de livros alugados entregues fora da data prevista
-   * de entrega. 
-   *
-   * @param string @data_prev_entrega data prevista de entrega do livro
-   * @param String @data_devolucao        data que realmente o livro foi entregue
-   * @return float
-   */
-  public function calculaMulta(string $data_prev_entrega, string $data_devolucao)
-  {
-    $valor_multa_por_dia = 1.5;
-    $total_multa = 0.0;
-
-    /**
-     * A função strtotime retorna o timestamp de cada data, ou seja, o numero de segundo
-     * desde 1970. Calcula a diferênça entre elas, o que segnifica o número de segundos que
-     * o livro está em atraso.
+   /**
+     * Método que calcula a multa de livros alugados entregues fora da data prevista
+     * de entrega. 
+     *
+     * @param string @data_prev_entrega data prevista de entrega do livro
+     * @param String @data_devolucao        data que realmente o livro foi entregue
+     * @return float
      */
-    $segundos_em_atraso = strtotime($data_devolucao) - strtotime($data_prev_entrega);
+    public function calculaMulta(string $data_prev_entrega, string $data_devolucao)
+    {
+        $valor_multa_por_dia = 1.5;
+        $total_multa = 0.0;
 
-    // Transforma os segundos em dias
-    $dias = $segundos_em_atraso / (60 * 60 * 24);
+        /**
+         * A função strtotime retorna o timestamp de cada data, ou seja, o numero de segundo
+         * desde 1970. Calcula a diferênça entre elas, o que segnifica o número de segundos que
+         * o livro está em atraso.
+         */
+        $segundos_em_atraso = strtotime($data_devolucao) - strtotime($data_prev_entrega);
 
-    // calcula o valor da multa
-    $total_multa = $valor_multa_por_dia * $dias;
+        // Transforma os segundos em dias
+        $dias = $segundos_em_atraso / (60 * 60 * 24);
 
-    return $total_multa;
-  }
+        // calcula o valor da multa
+        $total_multa = $valor_multa_por_dia * $dias;
+
+        return $total_multa;
+    }
 
 
 
