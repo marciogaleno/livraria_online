@@ -174,7 +174,7 @@ class AluguelModel
    * @param String @data_devolucao        data que realmente o livro foi entregue
    * @return float
    */
-  private function calculaMulta(string $data_prev_entrega, string $data_devolucao)
+  public function calculaMulta(string $data_prev_entrega, string $data_devolucao)
   { 
         $valor_multa_por_dia = 1.5;
         $total_multa = 0.0;
@@ -184,7 +184,7 @@ class AluguelModel
          * desde 1970. Calcula a diferênça entre elas, o que segnifica o número de segundos que 
          * o livro está em atraso.
          */ 
-        $segundos_em_atraso = strtotime($data_prev_entrega) - strtotime($data_devolucao);
+        $segundos_em_atraso = strtotime($data_devolucao) - strtotime($data_prev_entrega);
 
         // Transforma os segundos em dias
         $dias = $segundos_em_atraso / (60 * 60 * 24);
