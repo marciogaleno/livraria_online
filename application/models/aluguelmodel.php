@@ -177,24 +177,20 @@ class AluguelModel
   private function calculaMulta(string $data_prev_entrega, string $data_devolucao)
   { 
         $valor_multa_por_dia = 1.5;
-        $total_multa;
-
-        if (!empty($data_prev_entrega) && !empty($data_devolucao)) {
+        $total_multa = 0.0;
 
         /**
          * A função strtotime retorna o timestamp de cada data, ou seja, o numero de segundo
          * desde 1970. Calcula a diferênça entre elas, o que segnifica o número de segundos que 
          * o livro está em atraso.
          */ 
-          $segundos_em_atraso = strtotime($data_prev_entrega) - strtotime($data_devolucao);   
-        }
+        $segundos_em_atraso = strtotime($data_prev_entrega) - strtotime($data_devolucao);
 
         // Transforma os segundos em dias
         $dias = $segundos_em_atraso / (60 * 60 * 24);
 
         // calcula o valor da multa
-        $total_multa = $valor_multa_por_dia * $dias;    
-
+        $total_multa = $valor_multa_por_dia * $dias;
 
         return $total_multa;
   }
