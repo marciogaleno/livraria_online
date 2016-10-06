@@ -179,15 +179,14 @@ class AluguelModel
            */
             $segundo_em_atraso = strtotime($data_devolucao) - strtotime($data_prevista_entrega); 
 
-            // Transforma os segundos em dias
-            $dias = $segundo_em_atraso / (60 * 60 * 24);
+          // Transforma os segundos em dias
+          $dias = $segundo_em_atraso / (60 * 60 * 24);
 
             // calcula o valor da multa
             $tm = $md * $dias;
         }
 
-
-         return $tm;
+        return $tm;
     }
 
 
