@@ -165,7 +165,7 @@ class AluguelModel
 
     public function calculaMulta(string $data_prevista_entrega, string $data_devolucao) {
           
-        // variável que armazena o valor da multa cobrado por dia 
+        // variável que armazena o valor da multa cobrado por dia teste
         $md = 1.0;
 
         // variável que armazenará o total da multa calculada
