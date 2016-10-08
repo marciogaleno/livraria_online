@@ -171,7 +171,7 @@ class AluguelModel
         // variável que armazenará o total da multa calculada
         $tm = 0.0;
 
-        if (!empty($data_prevista_entrega) && !empty($data_devolucao)){
+        if (!checkDate($data_prevista_entrega) && !checkeDate($data_devolucao)){
           /**
            * A função strtotime retorna o timestamp de cada data, ou seja, o numero de segundo
            * desde 1970. Calcula a diferênça entre elas, o que segnifica o número de segundos que
@@ -191,6 +191,11 @@ class AluguelModel
 
 
 
+    public function validateDate($date)
+    {
+        $d = DateTime::createFromFormat('Y-m-d', $date);
+        return $d && $d->format('Y-m-d') === $date;
+    }
 
   function add($reserva_id, $cliente_id, $livro_id, $preco_aluguel)
   {
