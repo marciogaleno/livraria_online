@@ -171,7 +171,8 @@ class AluguelModel
         // variável que armazenará o total da multa calculada
         $tm = 0.0;
 
-        if (!checkDate($data_prevista_entrega) && !checkeDate($data_devolucao)){
+        // Verifica se as dotas são válidas 
+        if ($this->validateDate($data_prevista_entrega) && $this->validateDate($data_devolucao)){
           /**
            * A função strtotime retorna o timestamp de cada data, ou seja, o numero de segundo
            * desde 1970. Calcula a diferênça entre elas, o que segnifica o número de segundos que
