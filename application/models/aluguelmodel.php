@@ -163,41 +163,11 @@ class AluguelModel
    }
 
 
-    public function calculaMulta(string $data_prevista_entrega, string $data_devolucao) {
-
-          
-        // variável que armazena o valor da multa cobrado por dia
-        $md = 1.0;
-
-        // variável que armazenará o total da multa calculada
-        $tm = 0.0;
-
-        // Verifica se as dotas são válidas 
-        if ($this->validateDate($data_prevista_entrega) && $this->validateDate($data_devolucao)){
-          /**
-           * A função strtotime retorna o timestamp de cada data, ou seja, o numero de segundo
-           * desde 1970. Calcula a diferênça entre elas, o que segnifica o número de segundos que
-           * o livro está em atraso.
-           */
-            $segundo_em_atraso = strtotime($data_devolucao) - strtotime($data_prevista_entrega); 
-
-          // Transforma os segundos em dias
-          $dias = $segundo_em_atraso / (60 * 60 * 24);
-
-            // calcula o valor da multa s
-            $tm = $md * $dias;
-        }
-
-        return $tm;
-    }
-
-
-
-    public function validateDate($date)
-    {
-        $d = DateTime::createFromFormat('Y-m-d', $date);
-        return $d && $d->format('Y-m-d') === $date;
-    }
+  public function validaDataFormatoAmericano($date)
+  {
+      $d = DateTime::createFromFormat('Y-m-d', $date);
+      return $d && $d->format('Y-m-d') === $date;
+  }
 
   function add($reserva_id, $cliente_id, $livro_id, $preco_aluguel)
   {
