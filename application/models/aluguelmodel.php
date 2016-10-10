@@ -164,19 +164,23 @@ class AluguelModel
 
 
    /**
-     * Método que checa se uma data está no formato americano  
+     * Método que checa se uma data está no formato americano
      *
      * @param string @data  data que será verificada se está no padrão americano
      * @return boolean
      */
     public function validaDataFormatoAmericano($data)
     {
-        if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$data)) {
+        if ( preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$data) ) {
             return true;
-        } 
+        }
 
         return false;
     }
+
+
+
+
 
   function add($reserva_id, $cliente_id, $livro_id, $preco_aluguel)
   {
