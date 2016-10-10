@@ -163,6 +163,7 @@ class AluguelModel
    }
 
 
+
    /**
      * Método que checa se uma data está no formato americano
      *
@@ -171,14 +172,12 @@ class AluguelModel
      */
     public function validaDataFormatoAmericano($data)
     {
-        if ( preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$data) ) {
+        if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", $data)) {
             return true;
         }
 
         return false;
     }
-
-
 
 
 
