@@ -184,7 +184,7 @@ class AluguelModel
           // Transforma os segundos em dias
           $dias = $segundo_em_atraso / (60 * 60 * 24);
 
-            // calcula o valor da multa s
+            // calcula o valor da multa
             $tm = $md * $dias;
         }
 
