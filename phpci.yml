@@ -54,7 +54,7 @@ test:
           - "unusedcode"
 
     php_docblock_checker:
-        allowed_warnings: -1
+        allowed_warnings: 0
         allowed_erros: -1
         skip_classes: true
 
