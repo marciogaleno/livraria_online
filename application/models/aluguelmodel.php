@@ -163,8 +163,11 @@ class AluguelModel
    }
 
 
-  
-   
+  public function validaDataFormatoAmericano($date)
+  {
+      $d = DateTime::createFromFormat('Y-m-d', $date);
+      return $d && $d->format('Y-m-d') === $date;
+  }
 
   function add($reserva_id, $cliente_id, $livro_id, $preco_aluguel)
   {
