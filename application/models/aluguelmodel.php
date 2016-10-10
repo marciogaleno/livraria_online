@@ -167,7 +167,7 @@ class AluguelModel
    /**
      * Método que checa se uma data está no formato americano
      *
-     * @param string @data  data que será verificada se está no padrão americano
+     * @param string @data  data que será verificada se está no padrão americano 
      * @return boolean
      */
     public function validaDataFormatoAmericano($data)
