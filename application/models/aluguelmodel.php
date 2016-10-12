@@ -205,7 +205,7 @@ class AluguelModel
      * @param string @data  data que será verificada se está no padrão americano
      * @return boolean
      */
-    public function validaDataFormatoAmericano(string $data)
+    public function validaDataFormatoEUA(string $data)
     { 
         // A função preg_match verifica se a string da data passada como parâmetro está no padrão 
         // da expressão regular fornecida 
