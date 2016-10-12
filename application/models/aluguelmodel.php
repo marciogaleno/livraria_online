@@ -163,38 +163,37 @@ class AluguelModel
    }
 
 
-
-   
-
-
-
-
-
-
-    public function calculaMulta(string $data_prevista_entrega, string $data_devolucao) {
+   /**
+     * Método que calcula a multa de aluguel de livros
+     *
+     * @param string @dataPrevistaEntrega   data prevista de entrega do livro
+     * @param String @dataDevolucao         data que realmente o livro foi entregue
+     * @return float
+     */
+    public function calculaMulta(string $dataPrevistaEntrega, string $dataDevolucao) {
 
     
         // variável que armazena o valor da multa cobrado por dia
-        $md = 1.5;
+        $valorMultadia = 1.5;
 
         // variável que armazenará o total da multa calculada
-        $tm = 0.0;
+        $totalMulta = 0.0;
 
         /**
          * A função strtotime retorna o timestamp de cada data, ou seja, o numero de segundo
          * desde 1970. Calcula a diferênça entre elas, o que segnifica o número de segundos que
          * o livro está em atraso.
          */
-        $segundos_em_atraso = strtotime($data_devolucao) - strtotime($data_prevista_entrega); 
+        $segundosEmAtraso = strtotime($dataDevolucao) - strtotime($dataPrevistaEntrega); 
 
-        if ($segundos_em_atraso >= 0){
-        // Transforma os segundos em dias
-        $dias = $segundos_em_atraso / (60 * 60 * 24);
-          // calcula o valor da multa
-          $tm = $md * $dias;
+        if ($segundosEmAtraso >= 0){
+            // Transforma os segundos em dias
+            $dias = $segundosEmAtraso / (60 * 60 * 24);
+            // calcula o valor da multa
+            $totalMulta = $valorMultadia * $dias;
         }
 
-        return $tm;
+        return $totalMulta;
     }
 
 
