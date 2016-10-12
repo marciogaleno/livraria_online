@@ -198,13 +198,15 @@ class AluguelModel
         return $totalMulta;
     }
 
+
+
    /**
      * Método que checa se uma data está no formato americano yyyy-mm-dd
      *
      * @param string @data  data que será verificada se está no padrão americano
      * @return boolean
      */
-    public function checaDataFormatoAmericano(string $data)
+    public function checaDataFormatoEUA(string $data)
     { 
         // A função preg_match verifica se a string da data passada como parâmetro está no padrão 
         // da expressão regular fornecida 
