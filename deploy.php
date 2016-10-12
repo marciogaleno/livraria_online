@@ -386,6 +386,10 @@ task('renomeando_arquivos', function () {
 	run("cd {{deploy_path}}/current/tests && mv bootstrap.php.dist bootstrap.php");
 })->desc('Renomea arquivos');
 
+
+task('atualizacao_banco_de_dados', function () {
+})->desc('Renomea arquivos');
+
 task('executa_implantacao', [
     'preparando_servidor',
     'preparando_release',
@@ -395,5 +399,6 @@ task('executa_implantacao', [
     'criando_symlink',
     'removendo_releases_antigos',
     'renomeando_arquivos',
+    'atualizacao_banco_de_dados',
     'success',
 ])->desc('Deploy application to staging.');
