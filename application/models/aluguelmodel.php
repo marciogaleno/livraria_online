@@ -185,7 +185,7 @@ class AluguelModel
          * desde 1970. Calcula a diferênça entre elas, o que segnifica o número de segundos que
          * o livro está em atraso.
          */
-        $segundos_em_atraso = strtotime($data_prevista_entrega) - strtotime($data_devolucao); 
+        $segundos_em_atraso = strtotime($data_devolucao) - strtotime($data_prevista_entrega); 
 
         if ($segundos_em_atraso >= 0){
         // Transforma os segundos em dias
