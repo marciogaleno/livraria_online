@@ -170,12 +170,12 @@ class AluguelModel
 
 
 
-    
+
     public function calculaMulta(string $data_prevista_entrega, string $data_devolucao) {
 
-  
+    
         // variável que armazena o valor da multa cobrado por dia
-        $md = 1.0;
+        $md = 1.5;
 
         // variável que armazenará o total da multa calculada
         $tm = 0.0;
@@ -188,12 +188,11 @@ class AluguelModel
         $segundos_em_atraso = strtotime($data_prevista_entrega) - strtotime($data_devolucao); 
 
         if ($segundos_em_atraso >= 0){
-            // Transforma os segundos em dias
-            $dias = $segundos_em_atraso / (60 * 60 * 24);
-            // calcula o valor da multa
-            $tm = $md * $dias;
+        // Transforma os segundos em dias
+        $dias = $segundos_em_atraso / (60 * 60 * 24);
+          // calcula o valor da multa
+          $tm = $md * $dias;
         }
-
 
         return $tm;
     }
@@ -206,7 +205,7 @@ class AluguelModel
      * @param string @data  data que será verificada se está no padrão americano
      * @return boolean
      */
-    public function validaDataFormatoAmericano(string $data)
+    public function validaDataFormatoEUA(string $data)
     { 
         // A função preg_match verifica se a string da data passada como parâmetro está no padrão 
         // da expressão regular fornecida 
