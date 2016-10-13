@@ -190,7 +190,7 @@ class AluguelModel
             // Transforma os segundos em dias
             $dias = $segundosEmAtraso / (60 * 60 * 24);
             // calcula o valor da multa
-            $totalMulta = $valorMultadia * $dias;
+            $totalMulta = $valorMultaDia * $dias;
         }
 
         return $totalMulta;
