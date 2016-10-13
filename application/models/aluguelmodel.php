@@ -174,7 +174,7 @@ class AluguelModel
 
     
         // variável que armazena o valor da multa cobrado por dia
-        $valorMultadia = 1.5;
+        $valorMultaDia = 1.5;
 
         // variável que armazenará o total da multa calculada
         $totalMulta = 0.0;

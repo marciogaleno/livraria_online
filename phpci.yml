@@ -13,12 +13,6 @@ setup:
         - "cd application/config && mv config.php.dist config.php"
         - "cd tests && mv bootstrap.php.dist bootstrap.php"
 test:
-    php_unit:    
-        config:
-            - "phpunit.xml"
-        directory:
-            - "tests/"
-        coverage: "--coverage-html"
 
     php_loc:
         directory: "application"
@@ -58,6 +52,13 @@ test:
         allowed_erros: -1
         skip_classes: true
 
+    php_unit:    
+        config:
+            - "phpunit.xml"
+        directory:
+            - "tests/"
+        coverage: "--coverage-html"
+        
     codeception:
         allow_failures: true
         config: "codeception.yml"
