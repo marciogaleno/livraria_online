@@ -31,8 +31,8 @@ class AluguelModelTest extends PHPUnit
 
 		$aluguelModel = $this->controller->loadModel('aluguelModel');
 
-		$data_prevista_entrega = '2015-09-07';
-		$data_devolução = '2015-09-10';
+		$data_prevista_entrega = '07-09-2016';
+		$data_devolução = '10-09-2016';
 
  		// valor da multa por dia é R$ 1.50, então no caso das datas de exemplo que simula 3 
  		// dias de atraso o método calculaMulta deve retornar o valor 4.5.

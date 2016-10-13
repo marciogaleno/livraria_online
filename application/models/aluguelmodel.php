@@ -170,28 +170,30 @@ class AluguelModel
      * @param String @dataDevolucao         data que realmente o livro foi entregue
      * @return float
      */
-    public function calculaMulta(string $dataPrevistaEntrega, string $dataDevolucao) {
+    public function calculaMulta(string $dataPrevistaEntrega, string $dataDevolucao) 
+    {
 
-    
         // variável que armazena o valor da multa cobrado por dia
-        $valorMultaDia = 1.5;
+        $valorMultaDia = 1.0;
 
         // variável que armazenará o total da multa calculada
         $totalMulta = 0.0;
 
-        /**
-         * A função strtotime retorna o timestamp de cada data, ou seja, o numero de segundo
-         * desde 1970. Calcula a diferênça entre elas, o que segnifica o número de segundos que
-         * o livro está em atraso.
-         */
-        $segundosEmAtraso = strtotime($dataDevolucao) - strtotime($dataPrevistaEntrega); 
+        // Dias de atraso
+        $dias = 0;
 
-        if ($segundosEmAtraso >= 0){
-            // Transforma os segundos em dias
-            $dias = $segundosEmAtraso / (60 * 60 * 24);
-            // calcula o valor da multa
-            $totalMulta = $valorMultaDia * $dias;
-        }
+        // Transforma as strings de datas passadas como parâmetros em objetos do tipo data 
+        $dataDevolucao = new DateTime($dataDevolucao);
+        $dataPrevistaEntrega = new DateTime($dataPrevistaEntrega);
+
+        // Pega o intervalo entre as datas
+        $intervalo = $dataDevolucao->diff($dataPrevistaEntrega);
+
+        // Retorna o intervalo em dias
+        $dias = $intervalo->format('%d');
+
+        // Calcula o valor da multa
+        $totalMulta = $dias * $valorMultaDia;
 
         return $totalMulta;
     }
