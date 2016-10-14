@@ -58,6 +58,9 @@ test:
         directory:
             - "tests/"
         coverage: "--coverage-html"
+
+    pdepend: 
+        directory: "application"
         
     codeception:
         allow_failures: true
