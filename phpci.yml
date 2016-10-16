@@ -33,7 +33,6 @@ test:
         standard: "PSR2"
         path: "application"
         ignore:
-            - "modes"
 
     php_mess_detector:
         path: "application/models/"
