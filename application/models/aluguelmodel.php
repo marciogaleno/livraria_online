@@ -162,7 +162,23 @@ class AluguelModel
         return false;
    }
 
+    public function renovar2($id_aluga)
+    {
+        $sql = "UPDATE Aluga SET
+               DataPrevistaEntrega = :DataPrevistaEntrega
+               WHERE idAluga = :idAluga";
 
+        $query = $this->db->prepare($sql);
+
+        $query->bindValue(':DataPrevistaEntrega', date('y/m/d', strtotime("+13 days")));
+        $query->bindValue(':idAluga', $id_aluga);
+        
+        if ($query->execute()) {
+            return true;
+        }
+        
+        return false;
+    }
    /**
      * Método que calcula a multa de aluguel de livros
      *
