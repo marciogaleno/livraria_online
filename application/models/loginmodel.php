@@ -38,6 +38,18 @@ class LoginModel {
             return false;
         }
 
+        public function get($id)
+        {
+            $sql = "SELECT * FROM livro as l WHERE l.idLivro={$id}";
+            $query = $this->db->prepare($sql);
+                 //var_dump($livros); die;
+            $query->execute();  
+            
+            $livro = $query->fetchAll();
+            
+            return reset($livro);
+        }
+
         // get user's data
         // (we check if the password fits the password_hash via password_verify() some lines below)
         $sth = $this->db->prepare("SELECT *
