@@ -141,6 +141,18 @@ class LivroModel
         
         return reset($livro);
     }
+
+    public function get2($id)
+    {
+        $sql = "SELECT * FROM livro as l WHERE l.idLivro={$id}";
+        $query = $this->db->prepare($sql);
+             //var_dump($livros); die;
+        $query->execute();  
+        
+        $livro = $query->fetchAll();
+        
+        return reset($livro);
+    }
     
     public function delete($id)
     {
